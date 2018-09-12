@@ -1,0 +1,2729 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cnbv.Sait.ActiveDirectory</name>
+    </assembly>
+    <members>
+        <member name="T:Cnbv.Sait.ActiveDirectory.DomainSearcher">
+            <summary>
+            Provee un conjunto de métodos estáticos para realizar búsquedas de objetos en el 
+            directorio activo.
+            </summary>
+            <threadsafety>
+            Cualquier miembro público estático de este tipo se consideran seguros para múltiples 
+            hilos de ejecución. No se garantiza que sean seguros cualquiera de los miembros de 
+            instancia.
+            </threadsafety>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DomainSearcher.SearchComputer(System.DirectoryServices.DirectoryEntry,System.String,System.String,System.String)">
+            <summary>
+            Busca una computadora en el directorio activo.
+            </summary>
+            <param name="entry">
+            Entrada en el directorio activo que se usara como base para la búsqueda.
+            </param>
+            <param name="name">Nombre de la computadora a buscar.</param>
+            <param name="rootPath">Ruta a la raíz del directorio activo.</param>
+            <param name="domain">Nombre del dominio actual.</param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryComputer"/> si se encontró a la computadora, 
+            en caso contrario <see langword="null"/>.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DomainSearcher.SearchComputers(System.DirectoryServices.DirectoryEntry,System.String,System.String)">
+            <summary>
+            Obtiene un conjunto de computadoras en el directorio activo.
+            </summary>
+            <param name="entry">
+            Entrada en el directorio activo que se usara como base para la búsqueda.
+            </param>
+            <param name="rootPath">
+            Ruta a la raíz del directorio activo.
+            </param>
+            <param name="domain">Nombre del dominio actual.</param>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con las 
+            computadoras encontradas, o una colección vacía si no hubo resultados.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DomainSearcher.SearchContainer(System.DirectoryServices.DirectoryEntry,System.String,System.String,System.String)">
+            <summary>
+            Busca un contenedor en el directorio activo.
+            </summary>
+            <param name="entry">
+            Entrada en el directorio activo que se usara como base para la búsqueda.
+            </param>
+            <param name="name">Nombre del contenedor a buscar.</param>
+            <param name="rootPath">Ruta a la raíz del directorio activo.</param>
+            <param name="domain">Nombre del dominio actual.</param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryContainer"/> si se encontró al contenedor, 
+            en caso contrario <see langword="null"/>.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DomainSearcher.SearchContainers(System.DirectoryServices.DirectoryEntry,System.String,System.String)">
+            <summary>
+            Obtiene un conjunto de contenedores en el directorio activo.
+            </summary>
+            <param name="entry">
+            Entrada en el directorio activo que se usara como base para la búsqueda.
+            </param>
+            <param name="rootPath">
+            Ruta a la raíz del directorio activo.
+            </param>
+            <param name="domain">Nombre del dominio actual.</param>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con los 
+            contenedores encontrados, o una colección vacía si no hubo resultados.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DomainSearcher.SearchGroups(System.DirectoryServices.DirectoryEntry,System.String)">
+            <summary>
+            Busca objetos en el directorio activo.
+            </summary>
+            <param name="entry">
+            Entrada en el directorio activo que se usara como base para realizar la búsqueda.
+            </param>
+            <param name="filter">
+            Filtro que se usara para realizar la búsqueda.
+            </param>
+            <returns>
+            Objeto <see cref="T:System.DirectoryServices.SearchResultCollection"/> con los objetos encontrados.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DomainSearcher.SearchDirectGroup(System.DirectoryServices.DirectoryEntry,System.String,System.String,System.String)">
+            <summary>
+            Realiza una busqueda de un grupo en todo el directorio activo.
+            </summary>
+            <param name="entry">
+            Objeto <see cref="T:System.DirectoryServices.DirectoryEntry"/> que se usara como raíz de la búsqueda.
+            </param>
+            <param name="groupPath">
+            Ruta del grupo que se esta buscando.
+            </param>
+            <param name="rootPath">
+            Ruta a la raíz del directorio activo.
+            </param>
+            <param name="domain">Nombre del dominio actual.</param>
+            <returns>
+            Objeto <see cref="T:System.DirectoryServices.SearchResult"/> si se encontró el objeto, <see langword="null"/> en 
+            caso contrario.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DomainSearcher.SearchPrimaryGroup(System.DirectoryServices.DirectoryEntry,System.Byte[],System.String,System.String)">
+            <summary>
+            Busca un grupo primario en el directorio activo.
+            </summary>
+            <param name="entry">
+            Entrada en el directorio activo que se usara como base para la búsqueda.
+            </param>
+            <param name="sid">
+            Identificador de seguridad del grupo primario.
+            </param>
+            <param name="rootPath">Ruta a la raíz del directorio activo.</param>
+            <param name="domain">Nombre del dominio actual.</param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryGroup"/> si se encontró al grupo, 
+             <see langword="null"/> en caso contrario.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DomainSearcher.SearchGroup(System.DirectoryServices.DirectoryEntry,System.String,System.String,System.String)">
+            <summary>
+            Busca un grupo en el directorio activo.
+            </summary>
+            <param name="entry">
+            Entrada en el directorio activo que se usara como base para la búsqueda.
+            </param>
+            <param name="name">Nombre del grupo a buscar.</param>
+            <param name="rootPath">Ruta a la raíz del directorio activo.</param>
+            <param name="domain">Nombre del dominio actual.</param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryGroup"/> si se encontró al grupo, 
+            <see langword="null"/> en caso contrario.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DomainSearcher.SearchGroups(System.DirectoryServices.DirectoryEntry,Cnbv.Sait.ActiveDirectory.GroupTypes,System.String,System.String)">
+            <summary>
+            Busca un conjunto de grupos en el directorio activo.
+            </summary>
+            <param name="entry">
+            Entrada en el directorio activo que se usara como base para la búsqueda.
+            </param>
+            <param name="type">Tipo del grupo a buscar.</param>
+            <param name="rootPath">
+            Ruta a la raíz del directorio activo.
+            </param>
+            <param name="domain">Nombre del dominio actual.</param>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con los 
+            grupos encontrados, o una colección vacía si no hubo resultados.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DomainSearcher.SearchGroups(System.DirectoryServices.DirectoryEntry,Cnbv.Sait.ActiveDirectory.SearchOption,System.String,System.String,System.String)">
+            <summary>
+            Busca un conjunto de grupos en el directorio activo.
+            </summary>
+            <param name="entry">
+            Entrada en el directorio activo que se usara como base para la búsqueda.
+            </param>
+            <param name="options">
+            Un valor de la enumeración <see cref="T:Cnbv.Sait.ActiveDirectory.SearchOption"/> que indica como se realizara la búsqueda.
+            </param>
+            <param name="expression">
+            Termino a buscar.
+            </param>
+            <param name="rootPath">
+            Ruta a la raíz del directorio activo.
+            </param>
+            <param name="domain">Nombre del dominio actual.</param>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con los 
+            grupos encontrados, o una colección vacía si no hubo resultados.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DomainSearcher.SearchOrganizationalUnit(System.DirectoryServices.DirectoryEntry,System.String,System.String,System.String)">
+            <summary>
+            Busca una unidad organizacional en el directorio activo.
+            </summary>
+            <param name="entry">
+            Entrada en el directorio activo que se usara como base para la búsqueda.
+            </param>
+            <param name="name">Nombre de la unidad organizacional a buscar.</param>
+            <param name="rootPath">Ruta a la raíz del directorio activo.</param>
+            <param name="domain">Nombre del dominio actual.</param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryOrganizationalUnit"/> si se encontró a la 
+            unidad organizacional , en caso contrario <see langword="null"/>.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DomainSearcher.SearchOrganizationalUnits(System.DirectoryServices.DirectoryEntry,System.String,System.String)">
+            <summary>
+            Obtiene un conjunto de unidades organizacionales en el directorio activo.
+            </summary>
+            <param name="entry">
+            Entrada en el directorio activo que se usara como base para la búsqueda.
+            </param>
+            <param name="rootPath">
+            Ruta a la raíz del directorio activo.
+            </param>
+            <param name="domain">Nombre del dominio actual.</param>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> 
+            con los contenedores encontradas a partir de la entrada base.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DomainSearcher.SearchPrinter(System.DirectoryServices.DirectoryEntry,System.String,System.String,System.String)">
+            <summary>
+            Busca una impresora en el directorio activo.
+            </summary>
+            <param name="entry">
+            Entrada en el directorio activo que se usara como base para la búsqueda.
+            </param>
+            <param name="name">Nombre de la impresora a buscar.</param>
+            <param name="rootPath">Ruta a la raíz del directorio activo.</param>
+            <param name="domain">Nombre del dominio actual.</param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryPrinter"/> si se encontró a la impresora, 
+            <see langword="null"/> en caso contrario.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DomainSearcher.SearchPrinters(System.DirectoryServices.DirectoryEntry,System.String,System.String)">
+            <summary>
+            Obtiene un conjunto de impresoras en el directorio activo.
+            </summary>
+            <param name="entry">
+            Entrada en el directorio activo que se usara como base para la búsqueda.
+            </param>
+            <param name="rootPath">
+            Ruta a la raíz del directorio activo.
+            </param>
+            <param name="domain">Nombre del dominio actual.</param>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con las impresoras 
+            encontradas, o una colección vacía si no hubo resultados.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DomainSearcher.SearchUserById(System.DirectoryServices.DirectoryEntry,System.String,System.String,System.String)">
+            <summary>
+            Busca un usuario en el directorio activo.
+            </summary>
+            <param name="entry">
+            Entrada en el directorio activo que se usara como base para la búsqueda.
+            </param>
+            <param name="id">ID del usuario a buscar.</param>
+            <param name="rootPath">
+            Ruta a la raíz del directorio activo.
+            </param>
+            <param name="domain">Nombre del dominio actual.</param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryUser"/> si se encontró al usuario,  
+            <see langword="null"/> en caso contrario.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DomainSearcher.SearchUserByName(System.DirectoryServices.DirectoryEntry,System.String,System.String,System.String)">
+            <summary>
+            Busca un usuario en el directorio activo.
+            </summary>
+            <param name="entry">
+            Entrada en el directorio activo que se usara como base para la búsqueda.
+            </param>
+            <param name="name">Nombre del usuario a buscar.</param>
+            <param name="rootPath">
+            Ruta a la raíz del directorio activo.
+            </param>
+            <param name="domain">Nombre del dominio actual.</param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryUser"/> si se encontró al usuario,  
+            <see langword="null"/> en caso contrario.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DomainSearcher.SearchUsers(System.DirectoryServices.DirectoryEntry,System.String,System.String)">
+            <summary>
+            Busca un conjunto de usuarios en el directorio activo.
+            </summary>
+            <param name="entry">
+            Entrada en el directorio activo que se usara como base para la búsqueda.
+            </param>
+            <param name="rootPath">
+            Ruta a la raíz del directorio activo.
+            </param>
+            <param name="domain">Nombre del dominio actual.</param>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con los 
+            usuarios encontrados, o una colección vacía si no hubo resultados.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DomainSearcher.SearchUsers(System.DirectoryServices.DirectoryEntry,Cnbv.Sait.ActiveDirectory.SearchOption,System.String,System.String,System.String)">
+            <summary>
+            Busca un conjunto de usuarios en el directorio activo.
+            </summary>
+            <param name="entry">
+            Entrada en el directorio activo que se usara como base para la búsqueda.
+            </param>
+            <param name="options">
+            Un valor de la enumeración <see cref="T:Cnbv.Sait.ActiveDirectory.SearchOption"/> que indica como se realizara la búsqueda.
+            </param>
+            <param name="expression">
+            Termino a buscar.
+            </param>
+            <param name="rootPath">
+            Ruta a la raíz del directorio activo.
+            </param>
+            <param name="domain">Nombre del dominio actual.</param>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con los 
+            grupos encontrados, o una colección vacía si no hubo resultados.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DomainSearcher.SearchUsers(System.DirectoryServices.DirectoryEntry,Cnbv.Sait.ActiveDirectory.UserTypes,System.String,System.String)">
+            <summary>
+            Busca un conjunto de usuarios en el directorio activo.
+            </summary>
+            <param name="entry">
+            Entrada en el directorio activo que se usara como base para la búsqueda.
+            </param>
+            <param name="type">Tipo de usuario a buscar.</param>
+            <param name="rootPath">
+            Ruta a la raíz del directorio activo.
+            </param>
+            <param name="domain">Nombre del dominio actual.</param>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con los 
+            usuarios encontrados, o una colección vacía si no hubo resultados.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DomainSearcher.SearchPrimaryGroupUsers(System.DirectoryServices.DirectoryEntry,System.String,System.String,System.String)">
+            <summary>
+            Busca un conjunto de usuarios en un grupo que es grupo primario.
+            </summary>
+            <param name="entry">
+            Entrada en el directorio activo que se usara como base para la búsqueda.
+            </param>
+            <param name="rootPath">
+            Ruta a la raíz del directorio activo.
+            </param>
+            <param name="domain">Nombre del dominio actual.</param>
+            <param name="primaryGroup">
+            ID del grupo primario.
+            </param>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con los 
+            usuarios encontrados, o una colección vacía si no hubo resultados.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DomainSearcher.GetResult(System.DirectoryServices.DirectorySearcher,System.String)">
+            <summary>
+            Inicializa el objeto <see cref="T:System.DirectoryServices.DirectorySearcher"/>.
+            </summary>
+            <param name="searcher">
+            Objeto para realizar consultas al directorio activo.</param>
+            <param name="currentRange">Propiedad que se cargara en el buscador.</param>
+            <returns>
+            Un objeto <see cref="T:System.DirectoryServices.SearchResult"/> si hubo resultados, <see langword="null"/> en 
+            caso contrario.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DomainSearcher.Bind(System.String)">
+            <summary>
+            Se conecta a un objeto dentro del directorio activo.
+            </summary>
+            <param name="ldapPath">
+            Ruta del objeto del directorio activo al cual conectarse.
+            </param>
+            <returns>
+            Objeto <see cref="T:System.DirectoryServices.DirectoryEntry"/>.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DomainSearcher.BuildFilterOctetString(System.Byte[])">
+            <summary>
+            Convierte el valor de <paramref name="sid"/> en una cadena que se puede 
+            utilizar para buscar informacion en el directorio activo.
+            </summary>
+            <param name="sid">
+            Arreglo de <see cref="T:System.Byte"/> con informacion del identificador de seguridad de un 
+            elemento.
+            </param>
+            <returns>
+            Una cadena con informacion del identificador que se puede usar para crear un filtro.
+            </returns>
+        </member>
+        <member name="T:Cnbv.Sait.ActiveDirectory.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.AccountName">
+            <summary>
+              Looks up a localized string similar to sAMAccountName.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.ActiveDirectoryPath">
+            <summary>
+              Looks up a localized string similar to LDAP://{0}/{1}.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.ADExceptionGroupExist">
+            <summary>
+              Looks up a localized string similar to El Grupo &apos;{0}&apos; ya existe en la unidad organizacional..
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.ADExceptionGroupNotFound">
+            <summary>
+              Looks up a localized string similar to El Grupo &apos;{0}&apos; no existe en la unidad organizacional..
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.ADExceptionNotFound">
+            <summary>
+              Looks up a localized string similar to No se encontró el objeto en el directorio activo..
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.ADExceptionUserIsMember">
+            <summary>
+              Looks up a localized string similar to El usuario &apos;{0}&apos; ya es miembro del grupo..
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.ADExceptionUserIsNotMember">
+            <summary>
+              Looks up a localized string similar to El usuario &apos;{0}&apos; no es miembro del grupo..
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.ADExceptionUserNotFound">
+            <summary>
+              Looks up a localized string similar to No se encontró al usuario &apos;{0}&apos; en el directorio activo..
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.ADExceptionUserServiceNotFound">
+            <summary>
+              Looks up a localized string similar to El usuario Srvaplicacion no existe en el dominio..
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.ClassGroup">
+            <summary>
+              Looks up a localized string similar to group.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.DefaultNamingContext">
+            <summary>
+              Looks up a localized string similar to defaultNamingContext.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.Description">
+            <summary>
+              Looks up a localized string similar to description.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.DirectoryPassword">
+            <summary>
+              Looks up a localized string similar to D3vApl1.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.DirectoryUserId">
+            <summary>
+              Looks up a localized string similar to Srvaplicacion.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.DistinguishedName">
+            <summary>
+              Looks up a localized string similar to distinguishedName.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.DnsHostName">
+            <summary>
+              Looks up a localized string similar to dNSHostName.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.DriverName">
+            <summary>
+              Looks up a localized string similar to driverName.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.DriverVersion">
+            <summary>
+              Looks up a localized string similar to driverVersion.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterChild">
+            <summary>
+              Looks up a localized string similar to CN={0}.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterComputer">
+            <summary>
+              Looks up a localized string similar to (&amp;(objectClass=computer)(objectCategory=computer)(name={0})).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterComputers">
+            <summary>
+              Looks up a localized string similar to (&amp;(objectClass=computer)(objectCategory=computer)).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterContainer">
+            <summary>
+              Looks up a localized string similar to (&amp;(objectClass=container)(objectCategory=container)(name={0})).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterContainers">
+            <summary>
+              Looks up a localized string similar to (&amp;(objectClass=container)(objectCategory=container)).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterGroup">
+            <summary>
+              Looks up a localized string similar to (&amp;(objectClass=group)(objectCategory=group)(name={0})).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterGroupContains">
+            <summary>
+              Looks up a localized string similar to (&amp;(objectClass=group)(objectCategory=group)(name=*{0}*)).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterGroupDistinguished">
+            <summary>
+              Looks up a localized string similar to (&amp;(objectClass=group)(objectCategory=group)(distinguishedName={0})).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterGroupEndsWith">
+            <summary>
+              Looks up a localized string similar to (&amp;(objectClass=group)(objectCategory=group)(name=*{0})).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterGroupMember">
+            <summary>
+              Looks up a localized string similar to (&amp;(objectClass=group)(objectCategory=group)(member={0})).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterGroupMemberOf">
+            <summary>
+              Looks up a localized string similar to (&amp;(objectClass=group)(objectCategory=group)(memberOf={0})).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterGroupMemberOfType">
+            <summary>
+              Looks up a localized string similar to (&amp; (&amp;(objectClass=group)(objectCategory=group)(memberOf={0})){1}).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterGroupMemberType">
+            <summary>
+              Looks up a localized string similar to (&amp; (&amp;(objectClass=group)(objectCategory=group)(member={0})){1}).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterGroups">
+            <summary>
+              Looks up a localized string similar to (&amp;(objectClass=group)(objectCategory=group)).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterGroupStartsWith">
+            <summary>
+              Looks up a localized string similar to (&amp;(objectClass=group)(objectCategory=group)(name={0}*)).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterGroupsType">
+            <summary>
+              Looks up a localized string similar to (&amp; (&amp;(objectClass=group)(objectCategory=group)){0}).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterGroupsTypeEnd">
+            <summary>
+              Looks up a localized string similar to ).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterGroupsTypeStart">
+            <summary>
+              Looks up a localized string similar to (|.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterGroupType">
+            <summary>
+              Looks up a localized string similar to (grouptype={0}).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterMemberStar">
+            <summary>
+              Looks up a localized string similar to (member=*).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterOrganizationalUnit">
+            <summary>
+              Looks up a localized string similar to (&amp;(objectClass=organizationalUnit)(objectcategory=OrganizationalUnit)(name={0})).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterOrganizationalUnits">
+            <summary>
+              Looks up a localized string similar to (&amp;(objectClass=organizationalUnit)(objectcategory=OrganizationalUnit)).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterPrinter">
+            <summary>
+              Looks up a localized string similar to (&amp;(objectClass=printQueue)(objectCategory=printQueue)(name={0})).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterPrinters">
+            <summary>
+              Looks up a localized string similar to (&amp;(objectClass=printQueue)(objectCategory=printQueue)).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterRange">
+            <summary>
+              Looks up a localized string similar to member;range={0}-{1}.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterSid">
+            <summary>
+              Looks up a localized string similar to (objectSid={0}).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterUserId">
+            <summary>
+              Looks up a localized string similar to (&amp;(objectClass=user)(objectCategory=person)(sAMAccountName={0})).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterUserMember">
+            <summary>
+              Looks up a localized string similar to (&amp;(objectClass=user)(objectCategory=person)(distinguishedName={0})).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterUserName">
+            <summary>
+              Looks up a localized string similar to (&amp;(objectClass=user)(objectCategory=person)(name={0})).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterUserNameContains">
+            <summary>
+              Looks up a localized string similar to (&amp;(objectClass=user)(objectCategory=person)(name=*{0}*)).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterUserNameEndsWith">
+            <summary>
+              Looks up a localized string similar to (&amp;(objectClass=user)(objectCategory=person)(name=*{0})).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterUserNameStartsWith">
+            <summary>
+              Looks up a localized string similar to (&amp;(objectClass=user)(objectCategory=person)(name={0}*)).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterUserPrymaryGroup">
+            <summary>
+              Looks up a localized string similar to (&amp;(objectClass=user)(objectCategory=person)(PrimaryGroupID={0})).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterUsers">
+            <summary>
+              Looks up a localized string similar to (&amp;(objectClass=user)(objectCategory=person)).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterUsersType">
+            <summary>
+              Looks up a localized string similar to (&amp;(&amp;(objectClass=user)(objectCategory=person)){0}).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterUsersTypeEnd">
+            <summary>
+              Looks up a localized string similar to ).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterUsersTypeStart">
+            <summary>
+              Looks up a localized string similar to (|.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterUserType">
+            <summary>
+              Looks up a localized string similar to (sAMAccountName={0}*).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterUserTypeEmployee">
+            <summary>
+              Looks up a localized string similar to id00.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterUserTypeIntern">
+            <summary>
+              Looks up a localized string similar to idss.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterUserTypeOutsourcer">
+            <summary>
+              Looks up a localized string similar to idex.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.FilterUserTypeService">
+            <summary>
+              Looks up a localized string similar to (&amp;(!sAMAccountName=id00*)(!sAMAccountName=idex*)(!sAMAccountName=idss*)).
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.GivenName">
+            <summary>
+              Looks up a localized string similar to givenName.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.GroupType">
+            <summary>
+              Looks up a localized string similar to groupType.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.InvokeAdd">
+            <summary>
+              Looks up a localized string similar to Add.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.InvokeIsMember">
+            <summary>
+              Looks up a localized string similar to IsMember.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.InvokeRemove">
+            <summary>
+              Looks up a localized string similar to Remove.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.Mail">
+            <summary>
+              Looks up a localized string similar to mail.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.Member">
+            <summary>
+              Looks up a localized string similar to member.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.MemberOf">
+            <summary>
+              Looks up a localized string similar to memberOf.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.Name">
+            <summary>
+              Looks up a localized string similar to name.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.ObjectSid">
+            <summary>
+              Looks up a localized string similar to objectSid.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.Oct">
+            <summary>
+              Looks up a localized string similar to X2.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.OctetFormat">
+            <summary>
+              Looks up a localized string similar to \{0}.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.OperatingSystem">
+            <summary>
+              Looks up a localized string similar to operatingSystem.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.OperatingSystemServicePack">
+            <summary>
+              Looks up a localized string similar to operatingSystemServicePack.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.OperatingSystemVersion">
+            <summary>
+              Looks up a localized string similar to operatingSystemVersion.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.ParameterDescription">
+            <summary>
+              Looks up a localized string similar to description.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.ParameterDomain">
+            <summary>
+              Looks up a localized string similar to domain.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.ParameterDomainControler">
+            <summary>
+              Looks up a localized string similar to domainControler.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.ParameterExpression">
+            <summary>
+              Looks up a localized string similar to expression.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.ParameterId">
+            <summary>
+              Looks up a localized string similar to id.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.ParameterName">
+            <summary>
+              Looks up a localized string similar to name.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.ParameterSearchType">
+            <summary>
+              Looks up a localized string similar to searchType.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.ParameterType">
+            <summary>
+              Looks up a localized string similar to type.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.PortName">
+            <summary>
+              Looks up a localized string similar to portName.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.PrimaryGroupId">
+            <summary>
+              Looks up a localized string similar to primaryGroupId.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.PrimaryGroupToken">
+            <summary>
+              Looks up a localized string similar to PrimaryGroupToken.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.PrintColor">
+            <summary>
+              Looks up a localized string similar to printColor.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.PrintDuplexSupported">
+            <summary>
+              Looks up a localized string similar to printDuplexSupported.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.PrinterName">
+            <summary>
+              Looks up a localized string similar to printerName.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.PropertyDescription">
+            <summary>
+              Looks up a localized string similar to description.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.PropertyId">
+            <summary>
+              Looks up a localized string similar to Id.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.PropertyName">
+            <summary>
+              Looks up a localized string similar to Name.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.PropertyPath">
+            <summary>
+              Looks up a localized string similar to path.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.RootDse">
+            <summary>
+              Looks up a localized string similar to LDAP://RootDSE.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.ServerName">
+            <summary>
+              Looks up a localized string similar to serverName.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.ShortServerName">
+            <summary>
+              Looks up a localized string similar to shortServerName.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.Star">
+            <summary>
+              Looks up a localized string similar to *.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.Surname">
+            <summary>
+              Looks up a localized string similar to sn.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.UncName">
+            <summary>
+              Looks up a localized string similar to uncName.
+            </summary>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.Properties.Resources.VersionNumber">
+            <summary>
+              Looks up a localized string similar to versionNumber.
+            </summary>
+        </member>
+        <member name="T:Cnbv.Sait.ActiveDirectory.GroupFilters">
+            <summary>
+            Contiene métodos genéricos para la creación de filtros para las búsquedas de grupos.
+            </summary>
+            <threadsafety>
+            Cualquier miembro público estático de este tipo se consideran seguros para múltiples 
+            hilos de ejecución. No se garantiza que sean seguros cualquiera de los miembros de 
+            instancia.
+            </threadsafety>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.GroupFilters.WildcardFilter(Cnbv.Sait.ActiveDirectory.SearchOption,System.String)">
+            <summary>
+            Regresa el filtro para buscar por el nombre del grupo usando comodines.
+            </summary>
+            <param name="options">
+            Un valor de la enumeración <see cref="T:Cnbv.Sait.ActiveDirectory.SearchOption"/> que indica como se realizara la búsqueda.
+            </param>
+            <param name="expression">
+            Termino a buscar.
+            </param>
+            <returns>
+            El filtro para buscar por el nombre del grupo usando comodines.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.GroupFilters.ParentGroups(System.String,Cnbv.Sait.ActiveDirectory.GroupTypes)">
+            <summary>
+            Regresa el filtro para buscar grupos que son padres de <paramref name="childGroup"/>.
+            </summary>
+            <param name="childGroup">Grupo a buscar.</param>
+            <param name="type">El tipo de grupo que se esta buscando.</param>
+            <returns>Una cadena con un filtro de búsqueda para LDAP.</returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.GroupFilters.ChildGroups(System.String,Cnbv.Sait.ActiveDirectory.GroupTypes)">
+            <summary>
+            Regresa el filtro para buscar grupos que son hijos de <paramref name="parentGroup"/>.
+            </summary>
+            <param name="parentGroup">Grupo a buscar.</param>
+            <param name="type">El tipo de grupo que se esta buscando.</param>
+            <returns>Una cadena con un filtro de búsqueda para LDAP.</returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.GroupFilters.GroupFilter(Cnbv.Sait.ActiveDirectory.GroupTypes)">
+            <summary>
+            Regresa el filtro para buscar grupos.
+            </summary>
+            <param name="type">El tipo de grupo que se esta buscando.</param>
+            <returns>Una cadena con un filtro para buscar grupos.</returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.GroupFilters.GroupsTypeFilter(Cnbv.Sait.ActiveDirectory.GroupTypes)">
+            <summary>
+            Agrega los filtros necesarios por cada los tipos de grupo.
+            </summary>
+            <param name="type">Tipos de grupo a buscar.</param>
+            <returns>
+            Una cadena con el filtro de todos los tipo de grupo a buscar.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.GroupFilters.TypeFilter(Cnbv.Sait.ActiveDirectory.GroupTypes)">
+            <summary>
+            Forma la cadena para buscar un tipo de grupo en el directorio activo.
+            </summary>
+            <param name="type">Tipo del grupo a buscar.</param>
+            <returns>
+            Una cadena para buscar un tipo de grupo en el directorio activo.
+            </returns>
+        </member>
+        <member name="T:Cnbv.Sait.ActiveDirectory.DirectoryOrganizationalUnit">
+            <summary>
+            Representa una unidad organizacional en el directorio activo.
+            </summary>
+            <threadsafety>
+            Cualquier miembro público estático de este tipo se consideran seguros para múltiples 
+            hilos de ejecución. No se garantiza que sean seguros cualquiera de los miembros de 
+            instancia.
+            </threadsafety>
+            <example>
+            <code language="c#">
+            using System.Collections.ObjectModel;
+            using Cnbv.Sait.ActiveDirectory;
+            using Cnbv.Sait.Utilities.Extensions;
+            public class TestClass
+            {
+              public void Directory()
+              {
+                //se conecta al dominio sobre el cual esta conectada la maquina
+                DirectoryDomain dominio = new DirectoryDomain();
+                //se obtiene a la unidad organizacional
+                IDirectoryOrganizationalUnit ou = dominio.SearchOrganizationalUnit("ou");
+                if(ou.IsNotNull())
+                {
+                  //buscar una computadora
+                  IDirectoryComputer computadora = ou.SearchComputer("computadora");
+                  //buscamos todas las computadoras
+                  ObservableCollection&lt;IDirectoryComputer&gt; computadoras = ou.SearchComputers();
+                  //buscar un grupo
+                  IDirectoryGroup grupo = ou.SearchGroup("grupo");
+                  //buscamos todas los grupos
+                  ObservableCollection&lt;IDirectoryGroup&gt; grupos = ou.SearchGroups();
+                  //buscar una unidad organizacional
+                  IDirectoryOrganizationalUnit unidad = ou.SearchOrganizationalUnit("unidad");
+                  //buscamos todas las unidades organizacionales
+                  ObservableCollection&lt;IDirectoryOrganizationalUnit&gt; unidades =
+                    ou.SearchOrganizationalUnits();
+                  //buscar una impresora
+                  IDirectoryPrinter impresora = ou.SearchPrinter("impresora");
+                  //buscamos todas las impresoras
+                  ObservableCollection&lt;IDirectoryPrinter&gt; impresoras = ou.SearchPrinters();
+                  //buscar un usuario por id 
+                  IDirectoryUser usuario1 = ou.SearchUserById("id");
+                  //buscar un usuario por nombre 
+                  IDirectoryUser usuario2 = ou.SearchUserByName("nombre");
+                  //buscamos todas los usuarios
+                  ObservableCollection&lt;IDirectoryUser&gt; usuarios = ou.SearchUsers();
+                }
+              }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryOrganizationalUnit.#ctor">
+            <summary>
+            Inicializa una instancia de la clase <see cref="T:Cnbv.Sait.ActiveDirectory.DirectoryOrganizationalUnit"/>.
+            </summary>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryOrganizationalUnit.CreateGroup(System.String,System.String)">
+            <summary>
+            Crea un grupo en el directorio activo dentro de la unidad organizacional.
+            </summary>
+            <overloads>
+            Crea un grupo en el directorio activo.
+            </overloads>
+            <param name="name">Nombre del grupo a crear.</param>
+            <param name="description">Descripción del grupo a crear.</param>
+            <remarks>
+            Por defecto el tipo del grupo es <see cref="F:Cnbv.Sait.ActiveDirectory.NewGroupType.GlobalDistribution"/>.
+            </remarks>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="name"/> o <paramref name="description"/> son 
+            <see langword="null"/>, <see cref="F:System.String.Empty"/> o contienen solamente caracteres 
+            en blanco. 
+            </exception>
+            <exception cref="T:Cnbv.Sait.ActiveDirectory.ActiveDirectoryException">
+            Cuando el grupo ya existe en la unidad organizacional.
+            </exception>
+            <exception cref="T:System.UnauthorizedAccessException">
+            Cuando no se tienen permisos para crear un grupo.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryOrganizationalUnit.CreateGroup(System.String,System.String,Cnbv.Sait.ActiveDirectory.NewGroupType)">
+            <summary>
+            Crea un grupo en el directorio activo dentro de la unidad organizacional.
+            </summary>
+            <param name="name">Nombre del grupo a crear.</param>
+            <param name="description">Descripción del grupo a crear.</param>
+            <param name="type">Tipo de grupo a crear.</param>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="name"/> o <paramref name="description"/> son 
+            <see langword="null"/>, <see cref="F:System.String.Empty"/> o contienen solamente caracteres 
+            en blanco. 
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Cuando <paramref name="type"/> no es  un valor valido de <see cref="T:Cnbv.Sait.ActiveDirectory.NewGroupType"/>.
+            </exception>
+            <exception cref="T:Cnbv.Sait.ActiveDirectory.ActiveDirectoryException">
+            Cuando el grupo ya existe en la unidad organizacional.
+            </exception>
+            <exception cref="T:System.UnauthorizedAccessException">
+            Cuando no se tienen permisos para crear un grupo.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryOrganizationalUnit.DeleteGroup(System.String)">
+            <summary>
+            Elimina un grupo de la unidad organizacional y por lo tanto del directorio activo.
+            </summary>
+            <param name="name">Nombre del grupo a eliminar.</param>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="name"/> es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contiene solamente caracteres en blanco. 
+            </exception>
+            <exception cref="T:Cnbv.Sait.ActiveDirectory.ActiveDirectoryException">
+            Cuando el grupo no existe en la unidad organizacional.
+            </exception>
+            <exception cref="T:System.UnauthorizedAccessException">
+            Cuando no se tienen permisos para crear un grupo.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryOrganizationalUnit.SearchComputer(System.String)">
+            <summary>
+            Busca una computadora en el directorio activo.
+            </summary>
+            <param name="name">Nombre de la computadora a buscar.</param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryComputer"/> si se encontró a la computadora, 
+            <see langword="null"/> en caso contrario.
+            </returns>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="name"/> es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contiene solamente caracteres en blanco. 
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryOrganizationalUnit.SearchComputers">
+            <summary>
+            Busca un conjunto de computadoras en la unidad organizacional.
+            </summary>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con las 
+            computadoras encontradas, o una colección vacía si no hubo resultados.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryOrganizationalUnit.SearchGroup(System.String)">
+            <summary>
+            Busca un grupo en el directorio activo.
+            </summary>
+            <param name="name">Nombre del grupo a buscar.</param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryGroup"/> si se encontró al grupo,  
+            <see langword="null"/> en caso contrario.
+            </returns>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="name"/> es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contiene solamente caracteres en blanco. 
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryOrganizationalUnit.SearchGroups">
+            <summary>
+            Busca un conjunto de grupos en la unidad organizacional.
+            </summary>
+            <overloads>
+            Busca un conjunto de grupos en la unidad organizacional.
+            </overloads>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con los 
+            grupos encontrados, o una colección vacía si no hubo resultados.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryOrganizationalUnit.SearchGroups(Cnbv.Sait.ActiveDirectory.GroupTypes)">
+            <summary>
+            Busca un conjunto de grupos en la unidad organizacional.
+            </summary>
+            <param name="type">Tipo del grupo a buscar.</param>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con los 
+            grupos encontrados, o una colección vacía si no hubo resultados.
+            </returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Cuando <paramref name="type"/> no es un valor valido dentro de la 
+            enumeración <see cref="T:Cnbv.Sait.ActiveDirectory.GroupTypes"/>.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryOrganizationalUnit.SearchOrganizationalUnit(System.String)">
+            <summary>
+            Busca una unidad organizacional en el directorio activo.
+            </summary>
+            <param name="name">
+            Nombre de la unidad organizacional a buscar.
+            </param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryOrganizationalUnit"/> si se encontró a la unidad 
+            organizacional, <see langword="null"/> en caso contrario.
+            </returns>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="name"/> es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contiene solamente caracteres en blanco. 
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryOrganizationalUnit.SearchOrganizationalUnits">
+            <summary>
+            Busca un conjunto de unidades organizacionales en la unidad organizacional actual.
+            </summary>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con las 
+            unidades organizacionales encontradas, o una colección vacía si no hubo resultados.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryOrganizationalUnit.SearchPrinter(System.String)">
+            <summary>
+            Busca una impresora en el directorio activo.
+            </summary>
+            <param name="name">Nombre de la impresora a buscar.</param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryPrinter"/> si se encontró a la impresora, 
+            <see langword="null"/> en caso contrario.
+            </returns>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="name"/> es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contiene solamente caracteres en blanco. 
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryOrganizationalUnit.SearchPrinters">
+            <summary>
+            Busca un conjunto de impresoras en la unidad organizacional.
+            </summary>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con las 
+            impresoras encontradas, o una colección vacía si no hubo resultados.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryOrganizationalUnit.SearchUserById(System.String)">
+            <summary>
+            Busca un usuario en el directorio activo.
+            </summary>
+            <param name="id">ID del usuario a buscar.</param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryUser"/> si se encontró al usuario,  
+            <see langword="null"/> en caso contrario.
+            </returns>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="id"/> es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contiene solamente caracteres en blanco. 
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryOrganizationalUnit.SearchUserByName(System.String)">
+            <summary>
+            Busca un usuario en el directorio activo.
+            </summary>
+            <param name="name">Nombre del usuario a buscar.</param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryUser"/> si se encontró al usuario,  
+            <see langword="null"/> en caso contrario.
+            </returns>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="name"/> es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contiene solamente caracteres en blanco. 
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryOrganizationalUnit.SearchUsers">
+            <summary>
+            Busca un conjunto de usuarios en la unidad organizacional.
+            </summary>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con los 
+            usuarios encontrados, o una colección vacía si no hubo resultados.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryOrganizationalUnit.CreateGroup(System.DirectoryServices.DirectoryEntry,System.String,System.String,Cnbv.Sait.ActiveDirectory.NewGroupType)">
+            <summary>
+            Crea un grupo y salva los cambios en el directorio activo.
+            </summary>
+            <param name="entry">
+            Entrada en el directorio activo que se usara como base para agregar el grupo.
+            </param>
+            <param name="name">Nombre del grupo a crear.</param>
+            <param name="description">Descripción del grupo a crear.</param>
+            <param name="type">Tipo de grupo a crear.</param>
+        </member>
+        <member name="T:Cnbv.Sait.ActiveDirectory.DirectoryGroup">
+            <summary>
+            Representa un grupo en el directorio activo.
+            </summary>
+            <threadsafety>
+            Cualquier miembro público estático de este tipo se consideran seguros para múltiples 
+            hilos de ejecución. No se garantiza que sean seguros cualquiera de los miembros de 
+            instancia.
+            </threadsafety>
+            <example>
+            <code language="c#">
+            using System.Collections.ObjectModel;
+            using Cnbv.Sait.ActiveDirectory;
+            using Cnbv.Sait.Utilities.Extensions;
+            public class TestClass
+            {
+              public void Directory()
+              {
+                //se conecta al dominio sobre el cual esta conectada la maquina
+                DirectoryDomain dominio = new DirectoryDomain();
+                //se obtiene el grupo
+                IDirectoryGroup grupo = dominio.SearchGroup("grupo");
+                if(grupo.IsNotNull())
+                {
+                  //agrega un usuario al grupo
+                  grupo.AddUser("id");
+                  //quita un usuario del grupo
+                  grupo.RemoveUser("id");
+                  //actualiza la descripción del grupo
+                  grupo.EditDescription("descripción");
+                  //validar si un usuario es miembro del grupo
+                  if(grupo.IsMember("id"))
+                  {
+                    //el usuario es miembro del grupo
+                  }
+                  //buscar un grupo que sea miembro del grupo actual
+                  IDirectoryGroup grupo = grupo.SearchGroup("grupoHijo");
+                  //buscamos todas los grupos que son miembros del grupo actual
+                  ObservableCollection&lt;IDirectoryGroup&gt; grupos = grupo.SearchGroups();
+                  //buscar un usuario que sea miembro del grupo por id 
+                  IDirectoryUser usuario1 = grupo.SearchUserById("id");
+                  //buscar un usuario que sea miembro del grupo por nombre 
+                  IDirectoryUser usuario2 = grupo.SearchUserByName("nombre");
+                  //buscamos todas los usuarios que son miembros del grupo
+                  ObservableCollection&lt;IDirectoryUser&gt; usuarios = grupo.SearchUsers();
+                }
+              }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryGroup.#ctor">
+            <summary>
+            Inicializa una instancia de la clase <see cref="T:Cnbv.Sait.ActiveDirectory.DirectoryGroup"/>.
+            </summary>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryGroup.AddUser(System.String)">
+            <summary>
+            Agrega un usuario a los miembros del grupo.
+            </summary>
+            <param name="id">ID del usuario a agregar.</param>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="id"/> es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contienen solamente caracteres en blanco.
+            </exception>
+            <exception cref="T:Cnbv.Sait.ActiveDirectory.ActiveDirectoryException">
+            Cuando <paramref name="id"/> no existe en el directorio activo o 
+            cuando <paramref name="id"/> ya es miembro del grupo.
+            </exception>
+            <exception cref="T:System.Reflection.TargetInvocationException">
+            Cuando existe un error en la operación.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryGroup.EditDescription(System.String)">
+            <summary>
+            Actualiza la descripción del grupo en el directorio activo.
+            </summary>
+            <param name="description">Descripción del grupo.</param>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="description"/> es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contienen solamente caracteres en blanco.
+            </exception>
+            <exception cref="T:System.UnauthorizedAccessException">
+            Cuando no se tienen permisos para cambiar la descripción.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryGroup.RemoveUser(System.String)">
+            <summary>
+            Elimina un usuario de los miembros del grupo.
+            </summary>
+            <param name="id">ID del usuario a eliminar como miembro.</param>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="id"/> es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contienen solamente caracteres en blanco.
+            </exception>
+            <exception cref="T:Cnbv.Sait.ActiveDirectory.ActiveDirectoryException">
+            Cuando <paramref name="id"/> no existe en el directorio activo o cuando
+            <paramref name="id"/> no es miembro del grupo.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryGroup.IsMember(System.String)">
+            <summary>
+            Indica si un usuario es miembro de un grupo.
+            </summary>
+            <param name="id">ID del usuario a validar.</param>
+            <returns>
+            <see langword="true"/> si <paramref name="id"/> es miembro del grupo, 
+            <see langword="false"/> en caso contrario.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryGroup.SearchGroup(System.String)">
+            <summary>
+            Busca un grupo que sea miembro del grupo actual.
+            </summary>
+            <param name="name">Nombre del grupo a buscar.</param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryGroup"/> si se encontró al grupo,  
+            <see langword="null"/> en caso contrario.
+            </returns>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="name"/> es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contiene solamente caracteres en blanco. 
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryGroup.SearchGroups">
+            <summary>
+            Busca un conjunto de grupos que sean miembros del grupo actual.
+            </summary>
+            <overloads>
+            Busca un conjunto de grupos que sean miembros del grupo actual.
+            </overloads>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con los 
+            grupos encontrados, o una colección vacía si no hubo resultados.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryGroup.SearchGroups(Cnbv.Sait.ActiveDirectory.GroupTypes)">
+            <summary>
+            Busca un conjunto de grupos que sean miembros del grupo actual.
+            </summary>
+            <param name="type">Tipo del grupo a buscar.</param>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con los 
+            grupos encontrados, o una colección vacía si no hubo resultados.
+            </returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Cuando <paramref name="type"/> no es un valor valido dentro de la 
+            enumeración <see cref="T:Cnbv.Sait.ActiveDirectory.GroupTypes"/>.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryGroup.SearchUserById(System.String)">
+            <summary>
+            Busca un usuario en el grupo actual.
+            </summary>
+            <param name="id">ID del usuario a buscar.</param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryUser"/> si se encontró al usuario,  
+            <see langword="null"/> en caso contrario.
+            </returns>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="id"/> es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contiene solamente caracteres en blanco. 
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryGroup.SearchUserByName(System.String)">
+            <summary>
+            Busca un usuario en el grupo actual.
+            </summary>
+            <param name="name">Nombre del usuario a buscar.</param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryUser"/> si se encontró al usuario,  
+            <see langword="null"/> en caso contrario.
+            </returns>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="name"/> es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contiene solamente caracteres en blanco. 
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryGroup.SearchUsers">
+            <summary>
+            Busca un conjunto de usuarios en el grupo actual.
+            </summary>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con los 
+            usuarios encontrados, o una colección vacía si no hubo resultados.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryGroup.Bind(System.DirectoryServices.SearchResult,System.String,System.String)">
+            <summary>
+            Se conecta al directorio activo para obtener la información del grupo.
+            </summary>
+            <param name="result">
+            Objeto <see cref="T:System.DirectoryServices.SearchResult"/> con información del grupo en el directorio 
+            activo.
+            </param>
+            <param name="rootPath">
+            Ruta a la raíz del dominio.
+            </param>
+            <param name="domain">
+            Dominio del directorio activo.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            Cuando <paramref name="result"/> es <see langword="null"/>.
+            </exception>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="rootPath"/> o <paramref name="domain"/> son 
+            <see langword="null"/>, <see cref="F:System.String.Empty"/> o contienen solamente caracteres 
+            en blanco.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryGroup.IsMember(System.DirectoryServices.DirectoryEntry,System.String)">
+            <summary>
+            Indica si la ruta especificada es miembro del grupo.
+            </summary>
+            <param name="entry">Entrada del grupo en el directorio activo.</param>
+            <param name="path">
+            Ruta que se validara si es parte de la propiedad IsMember del grupo.
+            </param>
+            <returns>
+            <see langword="true"/> si la ruta especificada en <paramref name="path"/> es 
+            miembro del grupo, <see langword="false"/> en caso contrario.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryGroup.AddGroupMembers(System.DirectoryServices.DirectoryEntry,Cnbv.Sait.ActiveDirectory.IDirectoryBase,Cnbv.Sait.ActiveDirectory.GroupTypes,System.Collections.ObjectModel.ObservableCollection{Cnbv.Sait.ActiveDirectory.IDirectoryGroup},System.Collections.Hashtable)">
+            <summary>
+            Busca de manera recursiva los grupos que son miembros del grupo actual.
+            </summary>
+            <param name="domain">
+            Entrada del dominio en el directorio activo.
+            </param>
+            <param name="parent">Grupo padre actual.</param>
+            <param name="type">Tipo de grupo que se esta buscando.</param>
+            <param name="groups">Colección de los grupos miembros.</param>
+            <param name="processed">
+            Objeto <see cref="T:System.Collections.Hashtable"/> con la relación de los grupos que ya se procesaron 
+            para evitar ciclos infinitos.
+            </param>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryGroup.AddUsers(System.DirectoryServices.DirectoryEntry,System.DirectoryServices.DirectoryEntry,System.Collections.ObjectModel.ObservableCollection{Cnbv.Sait.ActiveDirectory.IDirectoryUser},System.Collections.Hashtable)">
+            <summary>
+            Busca los grupos miembros del grupo actual para buscar a los usuarios totales de 
+            manera recursiva.
+            </summary>
+            <param name="domain">
+            Entrada que representa la raíz del dominio.
+            </param>
+            <param name="group">
+            Entrada que representa el grupo actual.
+            </param>
+            <param name="users">
+            Colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con los usuarios del grupo.
+            </param>
+            <param name="processed">
+            Almacena los grupos que ya fueron procesados.
+            </param>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryGroup.AddDirectGroupMembers(System.DirectoryServices.DirectoryEntry,System.Collections.ObjectModel.ObservableCollection{Cnbv.Sait.ActiveDirectory.IDirectoryUser})">
+            <summary>
+            Obtiene los miembros directos de un grupo.
+            </summary>
+            <param name="group">Grupo en donde se buscaran los usuarios.</param>
+            <param name="users">
+            Objeto UserDictionary con los usuarios del grupo.
+            </param>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.DirectoryGroup.Description">
+            <summary>
+            Regresa la descripción del grupo en el directorio activo.
+            </summary>
+            <value>
+            La descripción del grupo en el directorio activo.
+            </value>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.DirectoryGroup.Id">
+            <summary>
+            Regresa el ID del grupo en el directorio activo.
+            </summary>
+            <value>
+            El ID del grupo en el directorio activo.
+            </value>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.DirectoryGroup.Type">
+            <summary>
+            Regresa el tipo del grupo en el directorio activo.
+            </summary>
+            <value>
+            Uno de los valores de la enumeración <see cref="T:Cnbv.Sait.ActiveDirectory.GroupTypes"/>.
+            </value>
+        </member>
+        <member name="T:Cnbv.Sait.ActiveDirectory.DirectoryDomain">
+            <summary>
+            Representa una instancia de un dominio dentro del directorio activo.
+            </summary>
+            <remarks>
+            <para>
+            Es el punto de entrada para interactuar con el directorio activo.
+            </para>
+            <para>
+            Para conectarse al directorio activo usa el usuario <c>Srvaplicacion</c>.
+            </para>
+            </remarks>
+            <threadsafety>
+            Cualquier miembro público estático de este tipo se consideran seguros para múltiples 
+            hilos de ejecución. No se garantiza que sean seguros cualquiera de los miembros de 
+            instancia.
+            </threadsafety>
+            <example>
+            <code language="c#">
+            using System.Collections.ObjectModel;
+            using Cnbv.Sait.ActiveDirectory;
+            using Cnbv.Sait.Utilities.Extensions;
+            public class TestClass
+            {
+              public void Directory()
+              {
+                //se conecta al dominio sobre el cual esta conectada la maquina
+                DirectoryDomain dominio = new DirectoryDomain();
+                //cambiar de dominio
+                dominio.ChangeDomain("cnbyv","DC=CNBYV,DC=GOB");
+                //buscar una computadora
+                IDirectoryComputer computadora = dominio.SearchComputer("computadora");
+                //buscamos todas las computadoras
+                ObservableCollection&lt;IDirectoryComputer&gt; computadoras = dominio.SearchComputers();
+                //buscar un contenedor
+                IDirectoryContainer contenedor = dominio.SearchContainer("contenedor");
+                //buscamos todas los contenedores
+                ObservableCollection&lt;IDirectoryContainer&gt; contenedores = dominio.SearchContainers();
+                //buscar un grupo
+                IDirectoryGroup grupo = dominio.SearchGroup("grupo");
+                //buscamos todas los grupos
+                ObservableCollection&lt;IDirectoryGroup&gt; grupos = dominio.SearchGroups();
+                //buscar una unidad organizacional
+                IDirectoryOrganizationalUnit unidad = dominio.SearchOrganizationalUnit("unidad");
+                //buscamos todas las unidades organizacionales
+                ObservableCollection&lt;IDirectoryOrganizationalUnit&gt; unidades = 
+                  dominio.SearchOrganizationalUnits();
+                //buscar una impresora
+                IDirectoryPrinter impresora = dominio.SearchPrinter("impresora");
+                //buscamos todas las impresoras
+                ObservableCollection&lt;IDirectoryPrinter&gt; impresoras = dominio.SearchPrinters();
+                //buscar un usuario por id 
+                IDirectoryUser usuario1 = dominio.SearchUserById("id");
+                //buscar un usuario por nombre 
+                IDirectoryUser usuario2 = dominio.SearchUserByName("nombre");
+                //buscamos todas los usuarios
+                ObservableCollection&lt;IDirectoryUser&gt; usuarios = dominio.SearchUsers();
+              }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="F:Cnbv.Sait.ActiveDirectory.DirectoryDomain.defaultNamingContext">
+            <summary>
+            Almacena la ruta del dominio actual.
+            </summary>
+        </member>
+        <member name="F:Cnbv.Sait.ActiveDirectory.DirectoryDomain.distinguishedName">
+            <summary>
+            Almacena el nombre único del dominio en el directorio activo.
+            </summary>
+        </member>
+        <member name="F:Cnbv.Sait.ActiveDirectory.DirectoryDomain.dnsHostName">
+            <summary>
+            Almacena el nombre del servidor DNS al cual se esta conectado.
+            </summary>
+        </member>
+        <member name="F:Cnbv.Sait.ActiveDirectory.DirectoryDomain.domainName">
+            <summary>
+            Almacena el nombre sencillo del dominio.
+            </summary>
+        </member>
+        <member name="F:Cnbv.Sait.ActiveDirectory.DirectoryDomain.rootPath">
+            <summary>
+            Almacena la ruta a la raíz del directorio activo.
+            </summary>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryDomain.#ctor">
+            <summary>
+            Inicializa una instancia de la clase <see cref="T:Cnbv.Sait.ActiveDirectory.DirectoryDomain"/>.
+            </summary>
+            <remarks>
+            Obtiene información del dominio actual usando la identidad del
+            usuario <c>Srvaplicacion</c>.
+            </remarks>
+            <exception cref="T:Cnbv.Sait.ActiveDirectory.ActiveDirectoryException">
+            Cuando el usuario <c>Srvaplicacion</c> no existe en el dominio.
+            </exception>
+            <exception cref="T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException">
+            Cuando el usuario <c>Srvaplicacion</c> no se puede conectar al directorio activo.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryDomain.ToString">
+            <summary>
+            Regresa un objeto <see cref="T:System.String"/> que representa al objeto 
+            <see cref="T:Cnbv.Sait.ActiveDirectory.DirectoryDomain"/> actual.
+            </summary>
+            <returns>
+            Un objeto <see cref="T:System.String"/> que representa al objeto 
+            <see cref="T:Cnbv.Sait.ActiveDirectory.DirectoryDomain"/> actual.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryDomain.ChangeDomain(System.String,System.String)">
+            <summary>
+            Se conecta al dominio especificado.
+            </summary>
+            <param name="domain">
+            Raíz del dominio al cual conectarse.
+            </param>
+            <param name="domainController">
+            Controlador de dominio al cual se quiere conectar en el formato DC=XXX,DC=YYY.
+            </param>
+            <remarks>
+            <para>
+            Para conectarse al nuevo dominio se usa el formato domain/domainController, 
+            por ejemplo:
+            </para>
+            <para>
+            cnbyv/DC=CNBYV,DC=GOB
+            </para>
+            <para>
+            Para conectarse al directorio activo se usa el usuario <c>Srvaplicacion</c>.
+            </para> 
+            </remarks>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="domain"/> o <paramref name="domainController"/> son 
+            <see langword="null"/>, <see cref="F:System.String.Empty"/> o contienen solamente caracteres 
+            en blanco.
+            </exception>
+            <exception cref="T:Cnbv.Sait.ActiveDirectory.ActiveDirectoryException">
+            Cuando el usuario <c>Srvaplicacion</c> no existe en el dominio. O Cuando no se 
+            encuentra el dominio especificado por <paramref name="domain"/> y 
+            <paramref name="domainController"/>.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryDomain.SearchGroups(System.String)">
+            <summary>
+            Busca un conjunto de grupos en el directorio activo.
+            </summary>
+            <param name="expression">Expresión a usar para buscar en los grupos.</param>
+            <overloads>
+            Busca un conjunto de grupos en el directorio activo.
+            </overloads>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con los 
+            grupos encontrados, o una colección vacía si no hubo resultados.
+            </returns>
+            <remarks>
+            Por defecto la opción de búsqueda es <see cref="F:Cnbv.Sait.ActiveDirectory.SearchOption.StartsWith"/>.
+            </remarks>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="expression"/> es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contiene solamente caracteres en blanco. 
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryDomain.SearchGroups(System.String,Cnbv.Sait.ActiveDirectory.SearchOption)">
+            <summary>
+            Busca un conjunto de grupos en el directorio activo.
+            </summary>
+            <param name="expression">Expresión a usar para buscar en los grupos.</param>
+            <param name="searchType">Indica como se realizara la búsqueda.</param>
+            <overloads>
+            Busca un conjunto de grupos en el directorio activo.
+            </overloads>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con los 
+            grupos encontrados, o una colección vacía si no hubo resultados.
+            </returns>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="expression"/> es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contiene solamente caracteres en blanco. 
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Cuando <paramref name="searchType"/> no es un valor valido dentro de la 
+            enumeración <see cref="T:Cnbv.Sait.ActiveDirectory.SearchOption"/>.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryDomain.SearchUsersByName(System.String)">
+            <summary>
+            Busca un conjunto de usuarios en el directorio activo.
+            </summary>
+            <param name="expression">Expresión a usar para buscar en los usuarios.</param>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con los 
+            usuarios encontrados, o una colección vacía si no hubo resultados.
+            </returns>
+            <remarks>
+            Por defecto la opción de búsqueda es <see cref="F:Cnbv.Sait.ActiveDirectory.SearchOption.StartsWith"/>.
+            </remarks>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="expression"/> es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contiene solamente caracteres en blanco. 
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryDomain.SearchUsersByName(System.String,Cnbv.Sait.ActiveDirectory.SearchOption)">
+            <summary>
+            Busca un conjunto de usuarios en el directorio activo.
+            </summary>
+            <param name="expression">Expresión a usar para buscar en los usuarios.</param>
+            <param name="searchType">Indica como se realizara la búsqueda.</param>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con los 
+            usuarios encontrados, o una colección vacía si no hubo resultados.
+            </returns>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="expression"/> es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contiene solamente caracteres en blanco. 
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Cuando <paramref name="searchType"/> no es un valor valido dentro de la 
+            enumeración <see cref="T:Cnbv.Sait.ActiveDirectory.SearchOption"/>.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryDomain.SearchUsers(Cnbv.Sait.ActiveDirectory.UserTypes)">
+            <summary>
+            Busca un conjunto de usuarios en el directorio activo.
+            </summary>
+            <param name="type">
+            Tipo de usuarios a buscar.
+            </param>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con los 
+            usuarios encontrados, o una colección vacía si no hubo resultados.
+            </returns>
+            <remarks>
+            Si el tipo de usuario es <see cref="F:Cnbv.Sait.ActiveDirectory.UserTypes.Service"/> solamente se buscaran 
+            usuarios de ese tipo.
+            </remarks>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Cuando <paramref name="type"/> no es un valor valido dentro de la 
+            enumeración <see cref="T:Cnbv.Sait.ActiveDirectory.UserTypes"/>.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryDomain.SearchComputer(System.String)">
+            <summary>
+            Busca una computadora en el directorio activo.
+            </summary>
+            <param name="name">Nombre de la computadora a buscar.</param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryComputer"/> si se encontró a la computadora, 
+            <see langword="null"/> en caso contrario.
+            </returns>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="name"/> o es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contienen solamente caracteres en blanco.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryDomain.SearchComputers">
+            <summary>
+            Busca un conjunto de computadoras en el directorio activo.
+            </summary>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con las 
+            computadoras encontradas, o una colección vacía si no hubo resultados.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryDomain.SearchContainer(System.String)">
+            <summary>
+            Busca un contenedor en el directorio activo.
+            </summary>
+            <param name="name">Nombre del contenedor a buscar.</param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryContainer"/> si se encontró al contenedor,  
+            <see langword="null"/> en caso contrario.
+            </returns>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="name"/> o es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contienen solamente caracteres en blanco.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryDomain.SearchContainers">
+            <summary>
+            Busca un conjunto de contenedores en el directorio activo.
+            </summary>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con los 
+            contenedores encontrados, o una colección vacía si no hubo resultados.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryDomain.SearchGroup(System.String)">
+            <summary>
+            Busca un grupo en el directorio activo.
+            </summary>
+            <param name="name">Nombre del grupo a buscar.</param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryGroup"/> si se encontró al grupo,  
+            <see langword="null"/> en caso contrario.
+            </returns>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="name"/> o es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contienen solamente caracteres en blanco.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryDomain.SearchGroups">
+            <summary>
+            Busca un conjunto de grupos en el directorio activo.
+            </summary>
+            <overloads>
+            Busca un conjunto de grupos en el directorio activo.
+            </overloads>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con los 
+            grupos encontrados, o una colección vacía si no hubo resultados.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryDomain.SearchGroups(Cnbv.Sait.ActiveDirectory.GroupTypes)">
+            <summary>
+            Busca un conjunto de grupos en el directorio activo.
+            </summary>
+            <param name="type">Tipo del grupo a buscar.</param>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con los 
+            grupos encontrados, o una colección vacía si no hubo resultados.
+            </returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Cuando <paramref name="type"/> no es un valor valido dentro de la 
+            enumeración <see cref="T:Cnbv.Sait.ActiveDirectory.GroupTypes"/>.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryDomain.SearchOrganizationalUnit(System.String)">
+            <summary>
+            Busca una unidad organizacional en el directorio activo.
+            </summary>
+            <param name="name">
+            Nombre de la unidad organizacional a buscar.
+            </param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryOrganizationalUnit"/> si se encontró a la unidad 
+            organizacional, <see langword="null"/> en caso contrario.
+            </returns>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="name"/> o es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contienen solamente caracteres en blanco.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryDomain.SearchOrganizationalUnits">
+            <summary>
+            Busca un conjunto de unidades organizacionales en el directorio activo.
+            </summary>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con las 
+            unidades organizacionales encontradas, o una colección vacía si no hubo resultados.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryDomain.SearchPrinter(System.String)">
+            <summary>
+            Busca una impresora en el directorio activo.
+            </summary>
+            <param name="name">Nombre de la impresora a buscar.</param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryPrinter"/> si se encontró a la impresora, 
+            <see langword="null"/> en caso contrario.
+            </returns>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="name"/> o es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contienen solamente caracteres en blanco.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryDomain.SearchPrinters">
+            <summary>
+            Busca un conjunto de impresoras en el directorio activo.
+            </summary>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con las 
+            impresoras encontradas, o una colección vacía si no hubo resultados.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryDomain.SearchUserById(System.String)">
+            <summary>
+            Busca un usuario en el directorio activo.
+            </summary>
+            <param name="id">ID del usuario a buscar.</param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryUser"/> si se encontró al usuario,  
+            <see langword="null"/> en caso contrario.
+            </returns>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="id"/> o es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contienen solamente caracteres en blanco.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryDomain.SearchUserByName(System.String)">
+            <summary>
+            Busca un usuario en el directorio activo.
+            </summary>
+            <param name="name">Nombre del usuario a buscar.</param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryUser"/> si se encontró al usuario,  
+            <see langword="null"/> en caso contrario.
+            </returns>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="name"/> o es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contienen solamente caracteres en blanco.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryDomain.SearchUsers">
+            <summary>
+            Busca un conjunto de usuarios en el directorio activo.
+            </summary>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con los 
+            usuarios encontrados, o una colección vacía si no hubo resultados.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryDomain.ThrowIfOperationException(System.Func{System.Boolean},System.String)">
+            <summary>
+            Lanza una excepción <see cref="T:Cnbv.Sait.ActiveDirectory.ActiveDirectoryException"/> si el resultado de 
+            la función <paramref name="operation"/> es <see langword="true"/>.
+            </summary>
+            <param name="operation">
+            Una función de donde se obtiene un valor <see langword="true"/> o 
+            <see langword="false"/>.
+            </param>
+            <param name="message">
+            Mensaje que aparecerá en la excepción.
+            </param>
+            <exception cref="T:Cnbv.Sait.ActiveDirectory.ActiveDirectoryException">
+            Cuando la función en <paramref name="operation"/> es <see langword="true"/>.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryDomain.LogOnUser">
+            <summary>
+            Obtiene el token del usuario <c>Srvaplicacion</c> en el dominio.
+            </summary>
+            <returns>
+            El token del usuario <c>Srvaplicacion</c> en el dominio.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryDomain.Initialize">
+            <summary>
+            Se conecta al dominio para extraer información básica acerca del mismo.
+            </summary>
+            <remarks>
+            Se conecta al dominio por defecto del usuario <c>Srvaplicacion</c>.
+            </remarks>
+            <exception cref="T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException">
+            Cuando el usuario <c>Srvaplicacion</c> no se puede conectar al directorio activo.
+            </exception>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.DirectoryDomain.DefaultNamingContext">
+            <summary>
+            Regresa el nombre único de la raíz del dominio en el directorio activo.
+            </summary>
+            <value>
+            El nombre único de la raíz del dominio en el directorio activo.
+            </value>
+            <remarks>
+            Este valor se obtiene del objeto raíz en el directorio activo, cuando se hace un 
+            cambio de dominio con <see cref="M:Cnbv.Sait.ActiveDirectory.IDirectoryDomain.ChangeDomain(System.String,System.String)"/> no es posible 
+            obtener este valor.
+            </remarks>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.DirectoryDomain.DistinguishedName">
+            <summary>
+            Regresa el nombre único del dominio en el directorio activo.
+            </summary>
+            <value>
+            El nombre único del dominio en el directorio activo.
+            </value>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.DirectoryDomain.DnsHostName">
+            <summary>
+            Regresa el nombre del servidor DNS al cual se esta conectado.
+            </summary>
+            <value>
+            El nombre del servidor DNS al cual se esta conectado.
+            </value>
+            <remarks>
+            <para>
+            Este valor se obtiene del objeto raíz en el directorio activo, cuando se hace un 
+            cambio de dominio con <see cref="M:Cnbv.Sait.ActiveDirectory.DirectoryDomain.ChangeDomain(System.String,System.String)"/> no es posible 
+            obtener este valor.
+            </para>
+            <para>
+            Cuando se cambia el dominio usando <see cref="M:Cnbv.Sait.ActiveDirectory.IDirectoryDomain.ChangeDomain(System.String,System.String)"/> el 
+            valor es <see cref="F:System.String.Empty"/> debido a que no es posible obtener el servidor DNS.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.DirectoryDomain.DomainName">
+            <summary>
+            Regresa el nombre sencillo del dominio.
+            </summary>
+            <value>
+            El nombre sencillo del dominio.
+            </value>
+        </member>
+        <member name="T:Cnbv.Sait.ActiveDirectory.DirectoryComputer">
+            <summary>
+            Representa una computadora en el directorio activo.
+            </summary>
+            <threadsafety>
+            Cualquier miembro público estático de este tipo se consideran seguros para múltiples 
+            hilos de ejecución. No se garantiza que sean seguros cualquiera de los miembros de 
+            instancia.
+            </threadsafety>
+            <example>
+            <code language="c#">
+            using System.Collections.ObjectModel;
+            using Cnbv.Sait.ActiveDirectory;
+            using Cnbv.Sait.Utilities.Extensions;
+            public class TestClass
+            {
+              public void Directory()
+              {
+                //se conecta al dominio sobre el cual esta conectada la maquina
+                DirectoryDomain dominio = new DirectoryDomain();
+                //se obtiene a la computadora
+                IDirectoryComputer computadora = dominio.SearchComputer("computadora");
+                if(computadora.IsNotNull())
+                {
+                  //buscar una impresora
+                  IDirectoryPrinter impresora = computadora.SearchPrinter("impresora");
+                  //buscamos todas las impresoras
+                  ObservableCollection&lt;IDirectoryPrinter&gt; impresoras = computadora.SearchPrinters();
+                }
+              }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryComputer.#ctor">
+            <summary>
+            Inicializa una instancia de la clase <see cref="T:Cnbv.Sait.ActiveDirectory.DirectoryComputer"/>.
+            </summary>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryComputer.SearchPrinter(System.String)">
+            <summary>
+            Busca una impresora en la computadora.
+            </summary>
+            <param name="name">Nombre de la impresora a buscar.</param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryPrinter"/> si se encontró a la impresora, 
+            <see langword="null"/> en caso contrario.
+            </returns>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="name"/> es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contiene solamente caracteres en blanco. 
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryComputer.SearchPrinters">
+            <summary>
+            Busca un conjunto de impresoras en la computadora.
+            </summary>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con las 
+            impresoras encontradas, o una colección vacía si no hubo resultados.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryComputer.Bind(System.DirectoryServices.SearchResult,System.String,System.String)">
+            <summary>
+            Se conecta al directorio activo para obtener la información de la computadora.
+            </summary>
+            <param name="result">
+            Objeto <see cref="T:System.DirectoryServices.SearchResult"/> con información de la computadora en el directorio 
+            activo.
+            </param>
+            <param name="rootPath">
+            Ruta a la raíz del dominio.
+            </param>
+            <param name="domain">
+            Dominio del directorio activo.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            Cuando <paramref name="result"/> es <see langword="null"/>.
+            </exception>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="rootPath"/> o <paramref name="domain"/> son 
+            <see langword="null"/>, <see cref="F:System.String.Empty"/> o contienen solamente caracteres 
+            en blanco.
+            </exception>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.DirectoryComputer.DnsHostName">
+            <summary>
+            Regresa el nombre de la computadora como se registro en el servidor DNS.
+            </summary>
+            <value>
+            El nombre de la computadora como se registro en el servidor DNS.
+            </value>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.DirectoryComputer.OperatingSystem">
+            <summary>
+            Regresa el sistema operativo de la computadora.
+            </summary>
+            <value>
+            El sistema operativo de la computadora.
+            </value>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.DirectoryComputer.OperatingSystemServicePack">
+            <summary>
+            Regresa el service pack del sistema operativo de la computadora.
+            </summary>
+            <value>
+            El service pack del sistema operativo de la computadora.
+            </value>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.DirectoryComputer.OperatingSystemVersion">
+            <summary>
+            Regresa la versión del sistema operativo de la computadora.
+            </summary>
+            <value>
+            La versión del sistema operativo de la computadora.
+            </value>
+        </member>
+        <member name="T:Cnbv.Sait.ActiveDirectory.DirectoryUser">
+            <summary>
+            Representa un usuario en el directorio activo.
+            </summary>
+            <threadsafety>
+            Cualquier miembro público estático de este tipo se consideran seguros para múltiples 
+            hilos de ejecución. No se garantiza que sean seguros cualquiera de los miembros de 
+            instancia.
+            </threadsafety>
+            <example>
+            <code language="c#">
+            using System.Collections.ObjectModel;
+            using Cnbv.Sait.ActiveDirectory;
+            using Cnbv.Sait.Utilities.Extensions;
+            public class TestClass
+            {
+              public void Directory()
+              {
+                //se conecta al dominio sobre el cual esta conectada la maquina
+                DirectoryDomain dominio = new DirectoryDomain();
+                //se obtiene al usuario
+                IDirectoryUser usuario = dominio.SearchUserById("id");
+                if(usuario.IsNotNull())
+                {
+                  //validar si el usuario es miembro de otro grupo
+                  if(usuario.IsMemberOf("grupo"))
+                  {
+                    //el grupo es miembro del grupo
+                  }
+                  //buscar los grupos de los cuales se es miembro
+                  ObservableCollection&lt;IDirectoryGroup&gt; grupos = 
+                    usuario.MemberOf(GroupTypes.GlobalDistribution);
+                }
+              }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="F:Cnbv.Sait.ActiveDirectory.DirectoryUser.primaryGroupSid">
+            <summary>
+            Almacena el identificador del grupo primario del usuario.
+            </summary>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryUser.#ctor">
+            <summary>
+            Inicializa una instancia de la clase <see cref="T:Cnbv.Sait.ActiveDirectory.DirectoryUser"/>.
+            </summary>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryUser.IsMemberOf(System.String)">
+            <summary>
+            Regresa un valor indicando si el usuario es miembro del grupo indicado.
+            </summary>
+            <param name="name">
+            Nombre del grupo en el directorio activo.
+            </param>
+            <returns>
+            <see langword="true"/> si el usuario es miembro del grupo con el nombre 
+            <paramref name="name"/>, <see langword="false"/> en caso contrario.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryUser.MemberOf">
+            <summary>
+            Obtiene un conjunto de grupos en el directorio activo de los cuales el usuario actual 
+            es miembro.
+            </summary>
+            <overloads>
+            Obtiene los grupos de los cuales el usuario actual es miembro.
+            </overloads>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con los 
+            grupos encontrados, o una colección vacía si no hubo resultados.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryUser.MemberOf(Cnbv.Sait.ActiveDirectory.GroupTypes)">
+            <summary>
+            Obtiene un conjunto de grupos en el directorio activo de los cuales el usuario actual 
+            es miembro.
+            </summary>
+            <param name="type">Tipo del grupo a buscar.</param>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con los 
+            grupos encontrados, o una colección vacía si no hubo resultados.
+            </returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Cuando <paramref name="type"/> no es un valor valido dentro de la 
+            enumeración <see cref="T:Cnbv.Sait.ActiveDirectory.GroupTypes"/>.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryUser.Bind(System.DirectoryServices.SearchResult,System.String,System.String)">
+            <summary>
+            Se conecta al directorio activo para obtener la información del usuario.
+            </summary>
+            <param name="result">
+            Objeto <see cref="T:System.DirectoryServices.SearchResult"/> con información del usuario en el directorio 
+            activo.
+            </param>
+            <param name="rootPath">
+            Ruta a la raíz del dominio.
+            </param>
+            <param name="domain">
+            Dominio del directorio activo.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            Cuando <paramref name="result"/> es <see langword="null"/>.
+            </exception>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="rootPath"/> o <paramref name="domain"/> son 
+            <see langword="null"/>, <see cref="F:System.String.Empty"/> o contienen solamente caracteres 
+            en blanco.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryUser.CreatePrimaryGroupSid(System.Byte[],System.Int32)">
+            <summary>
+            Crea el SID del grupo primario del usuario.
+            </summary>
+            <param name="userSid">El SID del usuario.</param>
+            <param name="primaryGroupId">El ID del grupo primario.</param>
+            <returns>
+            Un arreglo de bytes con el SID del grupo primario del usuario.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryUser.SearchGroups(System.DirectoryServices.DirectoryEntry,System.DirectoryServices.PropertyValueCollection,Cnbv.Sait.ActiveDirectory.GroupTypes)">
+            <summary>
+            Busca los grupos que son padres directos o indirectos de un usuario.
+            </summary>
+            <param name="domain">
+            Entrada con la raiz del directorio activo.
+            </param>
+            <param name="memberOf">
+            Colección que contiene a los grupos directos de un usuario.
+            </param>
+            <param name="type">
+            Tipo de grupo a buscar.
+            </param>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con los grupos
+            de los cuales es miembro el usuario actual de manera directa o indirecta.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryUser.ExpandGroups(System.DirectoryServices.DirectoryEntry,Cnbv.Sait.ActiveDirectory.IDirectoryBase,Cnbv.Sait.ActiveDirectory.GroupTypes,System.Collections.ObjectModel.ObservableCollection{Cnbv.Sait.ActiveDirectory.IDirectoryGroup},System.Collections.Hashtable)">
+            <summary>
+            Busca los grupos del usuario para buscar el total de grupos
+            de manera recursiva.
+            </summary>
+            <param name="domain">Entrada raíz en el directorio activo.</param>
+            <param name="parent">
+            Grupo padre en donde se buscaran los grupos que son miembros de el.
+            </param>
+            <param name="type">Tipo del grupo a buscar.</param>
+            <param name="groups">
+            Objeto GroupDictionary con los grupos del usuario.
+            </param>
+            <param name="processed">
+            Almacena los grupos que ya fueron procesados.
+            </param>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.DirectoryUser.Description">
+            <summary>
+            Regresa la descripción del usuario en el directorio activo.
+            </summary>
+            <value>
+            La descripción del usuario en el directorio activo.
+            </value>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.DirectoryUser.GivenName">
+            <summary>
+            Regresa el o los nombres propios del usuario.
+            </summary>
+            <value>
+            El o los nombres propios del usuario.
+            </value>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.DirectoryUser.Id">
+            <summary>
+            Regresa el ID del usuario en el directorio activo.
+            </summary>
+            <value>
+            El ID del usuario en el directorio activo.
+            </value>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.DirectoryUser.Mail">
+            <summary>
+            Regresa la dirección de correo electrónico del usuario.
+            </summary>
+            <value>
+            La dirección de correo electrónico del usuario.
+            </value>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.DirectoryUser.Surname">
+            <summary>
+            Regresa el o los apellidos del usuario.
+            </summary>
+            <value>
+            El o los apellidos del usuario.
+            </value>
+        </member>
+        <member name="T:Cnbv.Sait.ActiveDirectory.UserFilters">
+            <summary>
+            Contiene métodos genéricos para la creación de filtros para las búsquedas de usuarios.
+            </summary>
+            <threadsafety>
+            Cualquier miembro público estático de este tipo se consideran seguros para múltiples 
+            hilos de ejecución. No se garantiza que sean seguros cualquiera de los miembros de 
+            instancia.
+            </threadsafety>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.UserFilters.WildcardFilter(Cnbv.Sait.ActiveDirectory.SearchOption,System.String)">
+            <summary>
+            Regresa el filtro para buscar por el nombre de un usuario usando comodines.
+            </summary>
+            <param name="options">
+            Un valor de la enumeración <see cref="T:Cnbv.Sait.ActiveDirectory.SearchOption"/> que indica como se realizara la búsqueda.
+            </param>
+            <param name="expression">
+            Termino a buscar.
+            </param>
+            <returns>
+            El filtro para buscar por el nombre del usuario usando comodines.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.UserFilters.UserFilter(Cnbv.Sait.ActiveDirectory.UserTypes)">
+            <summary>
+            Regresa el filtro para buscar usuarios según el tipo de usuario.
+            </summary>
+            <param name="type">El tipo de usaurio que se esta buscando.</param>
+            <returns>Una cadena con un filtro para buscar usuarios.</returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.UserFilters.UsersTypeFilter(Cnbv.Sait.ActiveDirectory.UserTypes)">
+            <summary>
+            Agrega los filtros necesarios por cada los tipos de usuario.
+            </summary>
+            <param name="type">Tipos de usuario a buscar.</param>
+            <returns>
+            Una cadena con el filtro de todos los tipo de usuario a buscar.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.UserFilters.TypeFilter(Cnbv.Sait.ActiveDirectory.UserTypes)">
+            <summary>
+            Forma la cadena para buscar un tipo de usuario en el directorio activo.
+            </summary>
+            <param name="type">Tipo del usuario a buscar.</param>
+            <returns>
+            Una cadena para buscar un tipo de usuario en el directorio activo.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.UserFilters.ToUserTypeFilter(Cnbv.Sait.ActiveDirectory.UserTypes)">
+            <summary>
+            Regresa el valor del tipo de usuario en el directorio activo.
+            </summary>
+            <param name="type">Tipo del usuario.</param>
+            <returns>
+            El valor del tipo del usuario en el directorio activo.
+            </returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Cuando <paramref name="type"/> es menor a <see cref="F:Cnbv.Sait.ActiveDirectory.UserTypes.Employee"/> o mayor a
+            <see cref="F:Cnbv.Sait.ActiveDirectory.UserTypes.Intern"/>.
+            </exception>
+        </member>
+        <member name="T:Cnbv.Sait.ActiveDirectory.DirectoryPrinter">
+            <summary>
+            Representa una impresora en el directorio activo.
+            </summary>
+            <threadsafety>
+            Cualquier miembro público estático de este tipo se consideran seguros para múltiples 
+            hilos de ejecución. No se garantiza que sean seguros cualquiera de los miembros de 
+            instancia.
+            </threadsafety>
+            <example>
+            <code language="c#">
+            using System.Collections.ObjectModel;
+            using Cnbv.Sait.ActiveDirectory;
+            using Cnbv.Sait.Utilities.Extensions;
+            public class TestClass
+            {
+              public void Directory()
+              {
+                //se conecta al dominio sobre el cual esta conectada la maquina
+                DirectoryDomain dominio = new DirectoryDomain();
+                //se obtiene a la impresora
+                IDirectoryPrinter impresora = dominio.SearchPrinter("impresora");
+                if(impresora.IsNotNull())
+                {
+                  //realizar operaciones con el objeto
+                }
+              }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryPrinter.#ctor">
+            <summary>
+            Inicializa una instancia de la clase <see cref="T:Cnbv.Sait.ActiveDirectory.DirectoryPrinter"/>.
+            </summary>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryPrinter.Bind(System.DirectoryServices.SearchResult,System.String,System.String)">
+            <summary>
+            Se conecta al directorio activo para obtener la información de la impresora.
+            </summary>
+            <param name="result">
+            Objeto <see cref="T:System.DirectoryServices.SearchResult"/> con información de la impresora en el directorio 
+            activo.
+            </param>
+            <param name="rootPath">
+            Ruta a la raíz del dominio.
+            </param>
+            <param name="domain">
+            Dominio del directorio activo.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            Cuando <paramref name="result"/> es <see langword="null"/>.
+            </exception>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="rootPath"/> o <paramref name="domain"/> son 
+            <see langword="null"/>, <see cref="F:System.String.Empty"/> o contienen solamente caracteres 
+            en blanco.
+            </exception>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.DirectoryPrinter.DriverName">
+            <summary>
+            Regresa el nombre del controlador de la impresora.
+            </summary>
+            <value>
+            El nombre del controlador de la impresora.
+            </value>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.DirectoryPrinter.DriverVersion">
+            <summary>
+            Regresa el número de versión del controlador de la impresora.
+            </summary>
+            <value>
+            El número de versión del controlador de la impresora.
+            </value>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.DirectoryPrinter.PortName">
+            <summary>
+            Regresa el nombre del puerto de la impresora.
+            </summary>
+            <value>
+            El nombre del puerto de la impresora.
+            </value>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.DirectoryPrinter.PrintColor">
+            <summary>
+            Regresa un valor indicando si la impresora puede imprimir en color.
+            </summary>
+            <value>
+            <see langword="true"/> si la impresora puede imprimir en color, 
+            <see langword="false"/> en caso contrario.
+            </value>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.DirectoryPrinter.PrintDuplexSupported">
+            <summary>
+            Regresa un valor indicando si la impresora puede imprimir en Dúplex.
+            </summary>
+            <value>
+            <see langword="true"/> si la impresora puede imprimir en Dúplex, 
+            <see langword="false"/> en caso contrario.
+            </value>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.DirectoryPrinter.PrinterName">
+            <summary>
+            Regresa el nombre de la impresora en el directorio activo.
+            </summary>
+            <value>
+            El nombre de la impresora en el directorio activo.
+            </value>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.DirectoryPrinter.ServerName">
+            <summary>
+            Regresa el nombre del servidor de la impresora.
+            </summary>
+            <value>
+            El nombre del servidor de la impresora.
+            </value>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.DirectoryPrinter.ShortServerName">
+            <summary>
+            Regresa el nombre corto del servidor de la impresora.
+            </summary>
+            <value>
+            El nombre corto del servidor de la impresora.
+            </value>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.DirectoryPrinter.UncName">
+            <summary>
+            Regresa el nombre universal de la impresora en el directorio activo.
+            </summary>
+            <value>
+            El nombre universal de la impresora en el directorio activo.
+            </value>
+        </member>
+        <member name="P:Cnbv.Sait.ActiveDirectory.DirectoryPrinter.VersionNumber">
+            <summary>
+            Regresa la versión de la impresora.
+            </summary>
+            <value>
+            La versión de la impresora.
+            </value>
+        </member>
+        <member name="T:Cnbv.Sait.ActiveDirectory.DirectoryContainer">
+            <summary>
+            Representa un contenedor en el directorio activo.
+            </summary>
+            <threadsafety>
+            Cualquier miembro público estático de este tipo se consideran seguros para múltiples 
+            hilos de ejecución. No se garantiza que sean seguros cualquiera de los miembros de 
+            instancia.
+            </threadsafety>
+            <example>
+            <code language="c#">
+            using System.Collections.ObjectModel;
+            using Cnbv.Sait.ActiveDirectory;
+            using Cnbv.Sait.Utilities.Extensions;
+            public class TestClass
+            {
+              public void Directory()
+              {
+                //se conecta al dominio sobre el cual esta conectada la maquina
+                DirectoryDomain dominio = new DirectoryDomain();
+                //se obtiene al contenedor
+                IDirectoryContainer contenedor = dominio.SearchContainer("contenedor");
+                if(contenedor.IsNotNull())
+                {
+                  //buscar una computadora
+                  IDirectoryComputer computadora = contenedor.SearchComputer("computadora");
+                  //buscamos todas las computadoras
+                  ObservableCollection&lt;IDirectoryComputer&gt; computadoras = contenedor.SearchComputers();
+                  //buscar un grupo
+                  IDirectoryGroup grupo = contenedor.SearchGroup("grupo");
+                  //buscamos todas los grupos
+                  ObservableCollection&lt;IDirectoryGroup&gt; grupos = contenedor.SearchGroups();
+                  //buscar una impresora
+                  IDirectoryPrinter impresora = contenedor.SearchPrinter("impresora");
+                  //buscamos todas las impresoras
+                  ObservableCollection&lt;IDirectoryPrinter&gt; impresoras = contenedor.SearchPrinters();
+                  //buscar un usuario por id
+                  IDirectoryUser usuario1 = contenedor.SearchUserById("id");
+                  //buscar un usuario por nombre 
+                  IDirectoryUser usuario2 = contenedor.SearchUserByName("nombre");
+                  //buscamos todas los usuarios
+                  ObservableCollection&lt;IDirectoryUser&gt; usuarios = contenedor.SearchUsers();
+                }
+              }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryContainer.#ctor">
+            <summary>
+            Inicializa una instancia de la clase <see cref="T:Cnbv.Sait.ActiveDirectory.DirectoryContainer"/>.
+            </summary>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryContainer.SearchComputer(System.String)">
+            <summary>
+            Busca una computadora en el contenedor.
+            </summary>
+            <param name="name">Nombre de la computadora a buscar.</param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryComputer"/> si se encontró a la computadora, 
+            <see langword="null"/> en caso contrario.
+            </returns>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="name"/> es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contiene solamente caracteres en blanco. 
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryContainer.SearchComputers">
+            <summary>
+            Busca un conjunto de computadoras en el directorio activo.
+            </summary>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con las 
+            computadoras encontradas, o una colección vacía si no hubo resultados.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryContainer.SearchGroup(System.String)">
+            <summary>
+            Busca un grupo en el contenedor.
+            </summary>
+            <param name="name">Nombre del grupo a buscar.</param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryGroup"/> si se encontró al grupo,  
+            <see langword="null"/> en caso contrario.
+            </returns>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="name"/> es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contiene solamente caracteres en blanco. 
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryContainer.SearchGroups">
+            <summary>
+            Busca un conjunto de grupos en el contenedor.
+            </summary>
+            <overloads>
+            Busca un conjunto de grupos en el contenedor.
+            </overloads>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con los 
+            grupos encontrados, o una colección vacía si no hubo resultados.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryContainer.SearchGroups(Cnbv.Sait.ActiveDirectory.GroupTypes)">
+            <summary>
+            Busca un conjunto de grupos en el contenedor.
+            </summary>
+            <param name="type">Tipo del grupo a buscar.</param>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con los 
+            grupos encontrados, o una colección vacía si no hubo resultados.
+            </returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Cuando <paramref name="type"/> no es un valor valido dentro de la 
+            enumeración <see cref="T:Cnbv.Sait.ActiveDirectory.GroupTypes"/>.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryContainer.SearchPrinter(System.String)">
+            <summary>
+            Busca una impresora en el contenedor.
+            </summary>
+            <param name="name">Nombre de la impresora a buscar.</param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryPrinter"/> si se encontró a la impresora, 
+            <see langword="null"/> en caso contrario.
+            </returns>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="name"/> es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contiene solamente caracteres en blanco. 
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryContainer.SearchPrinters">
+            <summary>
+            Busca un conjunto de impresoras en el contenedor.
+            </summary>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con las 
+            impresoras encontradas, o una colección vacía si no hubo resultados.
+            </returns>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryContainer.SearchUserById(System.String)">
+            <summary>
+            Busca un usuario en el contenedor.
+            </summary>
+            <param name="id">ID del usuario a buscar.</param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryUser"/> si se encontró al usuario,  
+            <see langword="null"/> en caso contrario.
+            </returns>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="id"/> es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contiene solamente caracteres en blanco. 
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryContainer.SearchUserByName(System.String)">
+            <summary>
+            Busca un usuario en el contenedor.
+            </summary>
+            <param name="name">Nombre del usuario a buscar.</param>
+            <returns>
+            Un objeto <see cref="T:Cnbv.Sait.ActiveDirectory.IDirectoryUser"/> si se encontró al usuario,  
+            <see langword="null"/> en caso contrario.
+            </returns>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="name"/> es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contiene solamente caracteres en blanco. 
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.ActiveDirectory.DirectoryContainer.SearchUsers">
+            <summary>
+            Busca un conjunto de usuarios en el contenedor.
+            </summary>
+            <returns>
+            Una colección <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/> con los 
+            usuarios encontrados, o una colección vacía si no hubo resultados.
+            </returns>
+        </member>
+    </members>
+</doc>

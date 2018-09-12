@@ -1,0 +1,237 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cnbv.Sait.ISystemSecurity</name>
+    </assembly>
+    <members>
+        <member name="T:Cnbv.Sait.SystemSecurity.AuthenticationState">
+            <summary>
+            Representa los estados de la autenticación de un usuario en un dominio y 
+            su pertenencia a algún grupo del directorio activo.
+            </summary>
+        </member>
+        <member name="F:Cnbv.Sait.SystemSecurity.AuthenticationState.None">
+            <summary>
+            Las credenciales no son validas en el dominio(s).
+            </summary>
+        </member>
+        <member name="F:Cnbv.Sait.SystemSecurity.AuthenticationState.Authenticated">
+            <summary>
+            Las credenciales son validas en el dominio(s).
+            </summary>
+        </member>
+        <member name="F:Cnbv.Sait.SystemSecurity.AuthenticationState.AuthenticatedAndInRole">
+            <summary>
+            Las credenciales son validas en el dominio(s) y es miembro del grupo(s) del 
+            directorio activo.
+            </summary>
+        </member>
+        <member name="T:Cnbv.Sait.SystemSecurity.IAuthenticationInfo">
+            <summary>
+            Provee la interfaz con la información básica para autenticarse en el dominio.
+            </summary>
+            <threadsafety>
+            Cualquier miembro público estático de este tipo se consideran seguros para múltiples 
+            hilos de ejecución. No se garantiza que sean seguros cualquiera de los miembros de 
+            instancia.
+            </threadsafety>
+        </member>
+        <member name="P:Cnbv.Sait.SystemSecurity.IAuthenticationInfo.Domains">
+            <summary>
+            Regresa una colección de dominios en donde se intentara autenticar al usuario.
+            </summary>
+            <value>
+            Una colección de dominios en donde se intentara autenticar al usuario.
+            </value>
+        </member>
+        <member name="P:Cnbv.Sait.SystemSecurity.IAuthenticationInfo.Groups">
+            <summary>
+            Regresa una colección de grupos de los cuales el usuario debe pertenecer al menos a uno.
+            </summary>
+            <value>
+            Una colección de grupos de los cuales el usuario debe pertenecer al menos a uno.
+            </value>
+        </member>
+        <member name="P:Cnbv.Sait.SystemSecurity.IAuthenticationInfo.Domain">
+            <summary>
+            Regresa el dominio en donde se autenticara al usuario.
+            </summary>
+            <value>
+            El dominio en donde se autenticara al usuario.
+            </value>
+        </member>
+        <member name="P:Cnbv.Sait.SystemSecurity.IAuthenticationInfo.Group">
+            <summary>
+            Regresa el grupo al que debe pertenecer el usuario.
+            </summary>
+            <value>
+            El grupo al que debe pertenecer el usuario.
+            </value>
+        </member>
+        <member name="T:Cnbv.Sait.SystemSecurity.IAuthenticateUser">
+            <summary>
+            Interfaz con los métodos base para la validación de usuarios en un dominio.
+            </summary>
+            <threadsafety>
+            Cualquier miembro público estático de este tipo se consideran seguros para múltiples 
+            hilos de ejecución. No se garantiza que sean seguros cualquiera de los miembros de 
+            instancia.
+            </threadsafety>
+        </member>
+        <member name="M:Cnbv.Sait.SystemSecurity.IAuthenticateUser.IsAuthenticated(System.String)">
+            <summary>
+            Determina si el usuario ha sido autenticado por el dominio.
+            </summary>
+            <param name="domain">
+            Nombre del dominio en donde se realizara la autenticación del usuario.
+            </param>
+            <returns>
+            <see langword="true"/> si el usuario fue autenticado, <see langword="false"/> 
+            en caso contrario.
+            </returns>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="domain"/> es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contiene solamente caracteres en blanco.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.SystemSecurity.IAuthenticateUser.IsAuthenticated(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Determina si el usuario ha sido autenticado por el dominio.
+            </summary>
+            <param name="domains">
+            Una colección de cadenas que contenga los dominios en donde se realizara 
+            la autenticación.
+            </param>
+            <returns>
+            <see langword="true"/> si el usuario fue autenticado en al menos un dominio, 
+            <see langword="false"/> en caso contrario.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Cuando <paramref name="domains"/> es <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.SystemSecurity.IAuthenticateUser.ValidateUserAndRole(Cnbv.Sait.SystemSecurity.IAuthenticationInfo)">
+            <summary>
+            Determina si las credenciales del usuario son validas en un dominio y 
+            y verifica que pertenezca al grupo de directorio activo especificado.
+            </summary>
+            <param name="info">
+            Objeto con información básica para la autenticación del usuario.
+            </param>
+            <returns>
+            Un elemento de la enumeración <see cref="T:Cnbv.Sait.SystemSecurity.AuthenticationState"/> 
+            indicando el estado de la validación.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Cuando <paramref name="info"/> es <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.SystemSecurity.IAuthenticateUser.ValidateUserAndRole(System.String,System.String)">
+            <summary>
+            Determina si las credenciales del usuario son validas en un dominio y 
+            y verifica que pertenezca al grupo de directorio activo especificado.
+            </summary>
+            <param name="domain">
+            Nombre del dominio en donde se realizara la autenticación del usuario.
+            </param>
+            <param name="group">
+            Nombre del Grupo en el directorio activo al que debe pertenecer el usuario.
+            </param>
+            <returns>
+            Un elemento de la enumeración <see cref="T:Cnbv.Sait.SystemSecurity.AuthenticationState"/> 
+            indicando el estado de la validación.
+            </returns>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="domain"/> o <paramref name="group"/> son 
+            <see langword="null"/>, <see cref="F:System.String.Empty"/> o contienen solamente caracteres 
+            en blanco.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.SystemSecurity.IAuthenticateUser.ValidateUserAndRole(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            Determina si las credenciales del usuario son validas en un dominio y 
+            y verifica que pertenezca al grupo de directorio activo especificado.
+            </summary>
+            <param name="domains">
+            Una colección de cadenas que contenga los dominios en donde se realizara 
+            la autenticación.
+            </param>
+            <param name="group">
+            Nombre del grupo en el directorio activo al que debe pertenecer el usuario.
+            </param>
+            <returns>
+            Un elemento de la enumeración <see cref="T:Cnbv.Sait.SystemSecurity.AuthenticationState"/> 
+            indicando el estado de la validación.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Cuando <paramref name="domains"/> es <see langword="null"/>.
+            </exception>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="group"/> es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contiene solamente caracteres en blanco.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.SystemSecurity.IAuthenticateUser.ValidateUserAndRole(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Determina si las credenciales del usuario son validas en un dominio y 
+            y verifica que pertenezca al grupo de directorio activo especificado.
+            </summary>
+            <param name="domain">
+            Nombre del dominio en donde se realizara la autenticación del usuario.
+            </param>
+            <param name="groups">
+            Una colección de cadenas que contenga los grupos en el directorio activo al 
+            que debe pertenecer el usuario.
+            </param>
+            <returns>
+            Un elemento de la enumeración <see cref="T:Cnbv.Sait.SystemSecurity.AuthenticationState"/> 
+            indicando el estado de la validación.
+            </returns>
+            <exception cref="T:Cnbv.Sait.Utilities.Validations.ArgumentNullOrWhiteSpaceException">
+            Cuando <paramref name="domain"/> es <see langword="null"/>, 
+            <see cref="F:System.String.Empty"/> o contiene solamente caracteres en blanco.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Cuando <paramref name="groups"/> es <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="M:Cnbv.Sait.SystemSecurity.IAuthenticateUser.ValidateUserAndRole(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Determina si las credenciales del usuario son validas en un dominio y 
+            y verifica que pertenezca al grupo de directorio activo especificado.
+            </summary>
+            <param name="domains">
+            Una colección de cadenas que contenga los dominios en donde se realizara 
+            la autenticación.
+            </param>
+            <param name="groups">
+            Una colección de cadenas que contenga los grupos en el directorio activo al 
+            que debe pertenecer el usuario.
+            </param>
+            <returns>
+            Un elemento de la enumeración <see cref="T:Cnbv.Sait.SystemSecurity.AuthenticationState"/> 
+            indicando el estado de la validación.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Cuando <paramref name="domains"/> o <paramref name="groups"/> 
+            son <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="P:Cnbv.Sait.SystemSecurity.IAuthenticateUser.UserId">
+            <summary>
+            Regresa o asigna el ID del usuario a autenticar en el dominio.
+            </summary>
+            <value>
+            El ID del usuario a autenticar en el dominio.
+            </value>
+        </member>
+        <member name="P:Cnbv.Sait.SystemSecurity.IAuthenticateUser.Password">
+            <summary>
+            Regresa o asigna la contraseña del usuario a autenticar en el dominio.
+            </summary>
+            <value>
+            La contraseña del usuario a autenticar en el dominio.
+            </value>
+        </member>
+    </members>
+</doc>

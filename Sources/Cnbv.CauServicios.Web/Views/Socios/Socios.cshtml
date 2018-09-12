@@ -1,0 +1,37 @@
+﻿@using Cnbv.CauServicios.Model;
+@model List<Socio>
+
+
+@{
+    ViewBag.Title = "Socios";
+}
+
+<h2>Socios</h2>
+<div class="container">
+    <h1>Datos Socios.</h1>
+    <div>
+        <table id="table"
+            data-toggle="table"
+            data-flat="true"
+            data-search="true"
+            data-url="/Socios/GetData"
+            onload="CargaDatos" >
+            <thead>
+                <tr>
+                    <th data-field="SocioId" data-sortable="true">Id</th>
+                    <th data-field="Nombres" data-sortable="true">Nombres</th>
+                    <th data-field="ApellidoPaterno" data-sortable="true">Apellido Paterno</th>
+                    <th data-field="ApellidoMaterno" data-sortable="true">Apellido Materno</th>
+                    <th data-field="MontoSugerido" data-sortable="true">Monto</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div>
+        <br />
+        @using (Html.BeginForm("RegistraSocio", "RegistraSocio", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-registro" }))
+        {
+            <button class="btn  btn-primary" type="submit">Agregar Usuario</button>
+        }
+    </div>
+</div>

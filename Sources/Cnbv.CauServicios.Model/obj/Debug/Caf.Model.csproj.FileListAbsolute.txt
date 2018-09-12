@@ -1,0 +1,8 @@
+E:\Projects2018ExtWeb\Dev\Code\Sources\Caf.Model\bin\Debug\Caf.Model.dll
+E:\Projects2018ExtWeb\Dev\Code\Sources\Caf.Model\bin\Debug\Caf.Model.pdb
+E:\Projects2018ExtWeb\Dev\Code\Sources\Caf.Model\obj\Debug\Caf.Model.dll
+E:\Projects2018ExtWeb\Dev\Code\Sources\Caf.Model\obj\Debug\Caf.Model.pdb
+E:\ProjectoNNRP\Code\Sources\Caf.Model\bin\Debug\Caf.Model.dll
+E:\ProjectoNNRP\Code\Sources\Caf.Model\bin\Debug\Caf.Model.pdb
+E:\ProjectoNNRP\Code\Sources\Caf.Model\obj\Debug\Caf.Model.dll
+E:\ProjectoNNRP\Code\Sources\Caf.Model\obj\Debug\Caf.Model.pdb

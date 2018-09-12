@@ -1,0 +1,5 @@
+E:\ProjectoNNRP\Code\Sources\Cnbv.CauServicios.Model\obj\Release\Cnbv.CauServicios.Model.csprojResolveAssemblyReference.cache
+E:\ProjectoNNRP\Code\Sources\Cnbv.CauServicios.Model\bin\Release\Cnbv.CauServicios.Model.dll
+E:\ProjectoNNRP\Code\Sources\Cnbv.CauServicios.Model\bin\Release\Cnbv.CauServicios.Model.pdb
+E:\ProjectoNNRP\Code\Sources\Cnbv.CauServicios.Model\obj\Release\Cnbv.CauServicios.Model.dll
+E:\ProjectoNNRP\Code\Sources\Cnbv.CauServicios.Model\obj\Release\Cnbv.CauServicios.Model.pdb

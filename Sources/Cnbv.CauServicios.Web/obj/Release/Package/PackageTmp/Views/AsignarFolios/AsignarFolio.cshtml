@@ -1,0 +1,104 @@
+﻿@Scripts.Render("~/Scripts/ViewScripts/AsignarFolios.js")
+@{
+    ViewBag.Title = "AsignarFolio";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    @*<div class="content-wrapper" style="min-height: 921px;">*@
+        <div class="content-header">
+        </div>
+        @*<div class="container-fluid">*@
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        @*<h1 class="m-0 text-dark">Asignar Folio</h1>*@
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            @*<li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">Starter Page</li>*@
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Asignar Folio</h5>
+
+                                <div class="card-tools">                                   
+                                        <button class="btn btn-tool" type="button" data-widget="collapse">
+                                            <i class="fa fa-minus"></i>
+                                        </button>                           
+                                    <div class="btn-group">
+                                        <button class="btn btn-tool dropdown-toggle" type="button" data-toggle="dropdown">
+                                            <i class="fa fa-wrench"></i>
+                                        </button>
+                                        @*<div class="dropdown-menu dropdown-menu-right" role="menu">
+                                                <a class="dropdown-item" href="#">Action</a>
+                                                <a class="dropdown-item" href="#">Another action</a>
+                                                <a class="dropdown-item" href="#">Something else here</a>
+                                                <a class="dropdown-divider"></a>
+                                                <a class="dropdown-item" href="#">Separated link</a>
+                                            </div>*@
+                                    </div>
+                                    <button class="btn btn-tool" type="button" data-widget="remove">
+                                        <i class="fa fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="row col-md-12">
+                                <div class="card-body ">
+                                    <div class="input-group input-group-sm">
+                                        <div class="col-md-4">
+                                            <input class="form-control" type="text">
+                                            </div>
+                                        <div class="col-md-2">
+                                            <span class="input-group-append">
+                                                <button id="addFolioBtn" class="btn btn-info btn-flat" type="button">Asignar Folio.</button>
+                                            </span>
+                                        </div>
+                                        </div>
+                                    <br />
+                                    <br />
+
+                                    <div class="position-relative mb-auto">
+                                        <canvas id="FolioIng-chart" height="600"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <!-- ./card-body -->
+                            <div class="card-footer">
+
+                                <!-- /.row -->
+                            </div>
+                            <!-- /.card-footer -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+
+        @*</div>*@<!-- /.container-fluid -->
+        
+    @*</div>*@
+</div>
+    <script>
+
+        $(document).ready(function () {
+            debugger;
+            var url = "@Html.Raw(Url.Action("NewChart", "AsignarFolios"))"
+            LoadChart(url);
+
+        });//End Document Ready
+
+    </script>

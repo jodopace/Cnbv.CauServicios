@@ -1,0 +1,48 @@
+﻿@using Cnbv.CauServicios.Model;
+@model Usuario
+@{
+    ViewBag.Title = "InformacionGeneral";
+}
+<br />
+<br />
+<div class="container-fluid">
+    <div class="row">
+        <h1>Informacion General del Socio.</h1>
+    </div>
+    <div class="row">        
+            <div class="col-md-2 bg-primary">
+                <span class="label">Nombre:</span>
+            </div>
+            <div class="col-md-10 bg-info">
+                @Html.Label(Model.NombreCompleto)
+                @*<span class="label label-info">Info Label</span>*@
+            </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 bg-primary">
+            <span class="label">NUmero de socio:</span>
+        </div>
+        <div class="col-md-10 bg-info">
+            @Html.Label(Model.SocioId.ToString())
+            @*<span class="label label-info">Info Label</span>*@
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 bg-primary">
+            <span class="label ">Monto sugerido:</span>
+        </div>
+        <div class="col-md-10 bg-info">
+            @Html.Label(Model.MontoSugerido.ToString())
+            @*<span class="label label-info">Info Label</span>*@
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 bg-primary">
+            <span class="label">Correo electronico:</span>
+        </div>
+        <div class="col-md-10 bg-info">
+            @Html.Label(Model.CorreoElectronico)
+            @*<span class="label label-info">Info Label</span>*@
+        </div>
+    </div>
+</div>

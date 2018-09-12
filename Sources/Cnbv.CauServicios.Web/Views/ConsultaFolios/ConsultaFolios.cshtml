@@ -1,0 +1,254 @@
+﻿@Styles.Render("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css")
+@Styles.Render("https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css")
+@Styles.Render("~/Content/AdminLTE/AdminLTE-3.0.0-alpha/dist/css/adminlte.min.css")
+@Scripts.Render("~/Content/AdminLTE/AdminLTE-3.0.0-alpha/plugins/datatables/jquery.dataTables.js")
+@Scripts.Render("~/Content/AdminLTE/AdminLTE-3.0.0-alpha/plugins/datatables/dataTables.bootstrap4.min.js")
+@Styles.Render("~/Content/AdminLTE/AdminLTE-3.0.0-alpha/plugins/datatables/dataTables.bootstrap4.min.css")
+@Scripts.Render("~/Content/AdminLTE/AdminLTE-3.0.0-alpha/plugins/bootstrap/js/bootstrap.js")
+@Scripts.Render("~/Content/AdminLTE/AdminLTE-3.0.0-alpha/plugins/bootstrap/js/bootstrap.min.js")
+
+@{
+    ViewBag.Title = "ConsultaFolios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2> ConsultaFolios </h2>
+<div class="container">
+    @*<div class="content-wrapper" style="min-height: 921px;">*@
+    <div class="content-header">
+    </div>
+    <table id="solicitudes" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NumeroReporte</th>
+                <th>Comentario</th>
+                <th>FechaAsignado</th>
+                <th>Activo</th>       
+                <th>UsuarioSolicitud</th>   
+                <th>Cerrar</th>       
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Id</th>
+                <th>NumeroReporte</th>
+                <th>Comentario</th>
+                <th>FechaAsignado</th>
+                <th>Activo</th>   
+                <th>UsuarioSolicitud</th> 
+                <th>Cerrar</th>  
+            </tr>
+        </tfoot>
+    </table>
+
+    <!-- Modal -->
+    <div class="modal fade" id="solicitudModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Cerrar Folio</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>                   
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="NumeroReporte">Numero de Reporte:</label>
+                        <input type="number" class="form-control" id="InputNumeroReporte" placeholder="" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>Comentario:</label>
+                        <textarea class="form-control" rows="3" placeholder="Escriba un comentario..." id="inputComentario"></textarea>
+                    </div>
+                    <div class="form-group">                        
+                        <input type="hidden" class="form-control" id="IdSol">                        
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="btn-confirm">Cerrar Folio</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!---Confirm modal-->
+    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="mi-modal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Cerrar folio</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <h3 id="mensajemodal"></h3>
+            </div>
+                <div class="modal-footer">
+                     <button type="button" class="btn btn-default" id="modal-btn-si">Si</button>
+                     <button type="button" class="btn btn-primary" id="modal-btn-no">No</button>
+                </div>
+                </div>
+        </div>
+    </div>
+
+    <div class="alert" role="alert" id="result"></div>
+
+
+
+</div>
+   
+<script>
+    $(document).ready(function () {
+        LoadDataTableFolios();
+       
+    });
+
+
+    function LoadDataTableFolios()
+    {
+        $.ajax({
+            type: "Post",
+            url: "@Html.Raw(Url.Action("GetAllFolios", "ConsultaFolios"))",
+            contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+        
+
+            $('#solicitudes').DataTable({
+                "aaData": data,//////JSON.parse(data.Result),
+                "rowId": { "data": "Id" },
+                "columns": [
+                    { "data": "Id" },
+                    { "data": "NumeroReporte" },
+                    { "data": "Comentario" },
+                    { "data": "FechaAsignado" },                       
+                    { "data": "Activo" },
+                    { "data": "UsuarioSolicitud" },
+                    {
+                        data: null, render: function (data, type, row) {
+                            if (row.Activo) {
+                                return "<a href='#' class='btn btn-danger' onclick=CerrarFolio('" + row.Id + "'); >Cerrar</a>";
+                            }
+                            else
+                            {
+                                return "<a href='#' class='btn btn-success' disabled>Cerrado</a>";
+                            }
+                        }
+                    }]
+            });
+
+        },
+        error: function (err) {
+            alert(err);
+        }
+    });       
+    }
+
+    function CerrarFolio(row) {            
+        var rows = $('#solicitudes').DataTable().rows;
+        var elementos=$('#solicitudes').DataTable().data().length;
+        for (var i = 0; i < elementos; i++)
+        {
+            if (rows(i).data()[0].Id == row)
+            {
+                $('#IdSol').val(rows(i).data()[0].Id);
+                $('#InputNumeroReporte').val(rows(i).data()[0].NumeroReporte);
+                $('#inputComentario').val(rows(i).data()[0].Comentario);
+                ShowModal();
+                break;
+            }
+        }
+
+       
+
+    }
+
+    function ShowModal()
+    {
+
+        $('#solicitudModal').modal('show')
+    }
+
+    function UpdateFolioConfirmation()
+    {
+     
+
+    }
+
+    function UpdateFolio()
+    {          
+        var solicitud = {
+            Id: $('#IdSol').val(),
+            NumeroReporte: $('#InputNumeroReporte').val(),
+            Comentario:$('#inputComentario').val()
+            }
+            debugger;
+            $.ajax({
+                type: "POST",
+                url:  "@Html.Raw(Url.Action("UpdateSolicitud", "ConsultaFolios"))",
+                contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify(solicitud),
+            success: function (chData) {
+                if (chData.result)
+                {
+                    table = $('#solicitudes').DataTable();
+                    table.clear();
+                    table.destroy();
+                    LoadDataTableFolios();
+                    $('#solicitudModal').modal('hide')
+                }
+
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(xhr.status);
+                alert(thrownError);
+            }
+        });
+    }
+
+    function Delete(CustomerID) {
+        var url = '@Url.Content("~/")' + "DemoGrid/Delete";
+
+        $.post(url, { ID: CustomerID }, function (data) {
+            if (data) {
+                oTable = $('#example').DataTable();
+                oTable.draw();
+            }
+            else {
+                alert("Something Went Wrong!");
+            }
+        });
+    }
+
+    var modalConfirm = function (callback) {
+
+        $("#btn-confirm").on("click", function () {
+            msg = "¿Desea cerrar el folio " + $('#InputNumeroReporte').val() + "?"
+            $('#mensajemodal').html(msg);
+            $("#mi-modal").modal('show');
+        });
+
+        $("#modal-btn-si").on("click", function () {
+            callback(true);
+            $("#mi-modal").modal('hide');
+        });
+
+        $("#modal-btn-no").on("click", function () {
+            callback(false);
+            $("#mi-modal").modal('hide');
+        });
+    };
+
+    modalConfirm(function (confirm) {
+        if (confirm) {
+            //Acciones si el usuario confirma           
+                UpdateFolio();          
+           
+        } else {
+            //Acciones si el usuario no confirma
+            
+        }
+    });
+
+</script>

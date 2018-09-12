@@ -1,0 +1,12 @@
+E:\ProjectoNNRP\Code\Sources\Cnbv.CauServicios.Data\obj\Release\Cnbv.CauServicios.Data.csprojResolveAssemblyReference.cache
+E:\ProjectoNNRP\Code\Sources\Cnbv.CauServicios.Data\bin\Release\Cnbv.CauServicios.Data.dll.config
+E:\ProjectoNNRP\Code\Sources\Cnbv.CauServicios.Data\bin\Release\Cnbv.CauServicios.Data.dll
+E:\ProjectoNNRP\Code\Sources\Cnbv.CauServicios.Data\bin\Release\Cnbv.CauServicios.Data.pdb
+E:\ProjectoNNRP\Code\Sources\Cnbv.CauServicios.Data\bin\Release\Cnbv.CauServicios.Model.dll
+E:\ProjectoNNRP\Code\Sources\Cnbv.CauServicios.Data\bin\Release\EntityFramework.dll
+E:\ProjectoNNRP\Code\Sources\Cnbv.CauServicios.Data\bin\Release\EntityFramework.SqlServer.dll
+E:\ProjectoNNRP\Code\Sources\Cnbv.CauServicios.Data\bin\Release\Cnbv.CauServicios.Model.pdb
+E:\ProjectoNNRP\Code\Sources\Cnbv.CauServicios.Data\bin\Release\EntityFramework.xml
+E:\ProjectoNNRP\Code\Sources\Cnbv.CauServicios.Data\bin\Release\EntityFramework.SqlServer.xml
+E:\ProjectoNNRP\Code\Sources\Cnbv.CauServicios.Data\obj\Release\Cnbv.CauServicios.Data.dll
+E:\ProjectoNNRP\Code\Sources\Cnbv.CauServicios.Data\obj\Release\Cnbv.CauServicios.Data.pdb

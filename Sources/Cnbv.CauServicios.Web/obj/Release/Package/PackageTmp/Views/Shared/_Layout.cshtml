@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Cau Servicios</title>
+
+     @*IE10 viewport hack for Surface/desktop Windows 8 bug 
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">*@
+
+     @*Custom styles for this template 
+    <link href="starter-template.css" rel="stylesheet">*@
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+    <!-- IonIcons -->
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    @Styles.Render("~/Content/AdminLTE/AdminLTE-3.0.0-alpha/plugins/font-awesome/css/font-awesome.min.css")
+    @Styles.Render("~/Content/AdminLTE/AdminLTE-3.0.0-alpha/dist/css/adminlte.min.css")
+
+</head>
+
+<body  class="hold-transition sidebar-mini">
+    <div class="wrapper">
+
+        @if (HttpContext.Current.User.Identity.IsAuthenticated)
+        {
+            @Html.Partial("AuthorizeMenuPartial");
+        }
+        else
+        {
+            @Html.Partial("UnAuthorizePartial");
+        }
+           <div class="content-wrapper">
+            @*@Styles.Render("~/Content/bootstrapcss")
+            @Scripts.Render("~/bundles/bootstrapjs")
+            @Styles.Render("~/Content/bootstrap-table.css")
+            @Scripts.Render("~/Scripts/bootstrap-table.js")*@
+            @Scripts.Render("~/Content/AdminLTE/AdminLTE-3.0.0-alpha/plugins/jquery/jquery.min.js")
+            <!-- Bootstrap -->
+            @Scripts.Render("~/Content/AdminLTE/AdminLTE-3.0.0-alpha/plugins/bootstrap/js/bootstrap.bundle.min.js")
+            <!-- AdminLTE -->
+            @Scripts.Render("~/Content/AdminLTE/AdminLTE-3.0.0-alpha/dist/js/adminlte.js")
+
+            <!-- OPTIONAL SCRIPTS -->
+            @Scripts.Render("~/Content/AdminLTE/AdminLTE-3.0.0-alpha/plugins/chart.js/Chart.min.js")
+            @Scripts.Render("~/Content/AdminLTE/AdminLTE-3.0.0-alpha/dist/js/demo.js")
+            @Scripts.Render("~/Content/AdminLTE/AdminLTE-3.0.0-alpha/dist/js/pages/dashboard3.js")
+
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>
+
