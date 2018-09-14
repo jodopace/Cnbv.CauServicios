@@ -1,0 +1,52 @@
+﻿@Styles.Render("~/Content/PagesStyles/RegistraSocio.css")
+  @Scripts.Render("~/Scripts/ViewScripts/RegistraUsuario.js")
+@model Cnbv.CauServicios.Web.Models.SocioViewModel
+@{
+    ViewBag.Title = "RegistraSocio";
+}
+<br />
+<br />
+
+<div class="container">
+    @using (Html.BeginForm("GuardaDatosSocio", "RegistraSocio", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-registro" }))
+    {
+        <h2>Registro de Socio</h2>
+        @Html.Label("Nombres:")
+        @Html.TextBoxFor(m => m.Nombres, new { @id = "inputNombre", @class = "form-control", @placeholder = "Nombres", @required = true, @autofocus = true })
+        @Html.Label("Apellido Paterno:")
+        @Html.TextBoxFor(m => m.ApellidoPaterno, new { @id = "inputApellidoPaterno", @class = "form-control", @placeholder = "Apellido Paterno", @required = true })        
+        @Html.Label("Apellido Materno:")
+        @Html.TextBoxFor(m => m.ApellidoMaterno, new { @id = "inputApellidoMaterno", @class = "form-control", @placeholder = "Apellido Materno", @required = true })        
+        @Html.Label("Correo Electronico:")
+        @Html.TextBoxFor(m => m.CorreoElectronico, new { @id = "inputCorreoElectronico", @type = "email", @class = "form-control", @placeholder = "Correo Electronico", @required = false })        
+        @Html.Label("Monto Sugerido:")
+        @Html.TextBoxFor(m => m.MontoSugerido, new { @id = "inputMontoSugerido", @type = "number", @class = "form-control", @placeholder = "Monto sugerido.", @required = false })        
+        @Html.Label("Periodo:")
+        @Html.DropDownListFor(m => m.CatPeriodoId, (this.ViewData["Periodo"] as List<SelectListItem>), "-- Select Status --", new { @id = "listItemsPeriodo", @class = "form-control", @required = true })
+        /*
+        @Html.TextBoxFor(m => m.Periodo, new { @id = "inputPeriodo", @class = "form-control", @placeholder = "Periodo", @required = false })        
+        */
+        @Html.Label("Rol:")
+        @Html.DropDownListFor(m => m.RolUserId, (this.ViewData["Rol"] as List<SelectListItem>), "-- Selecione Rol --", new { @id = "listItemsRol", @class = "form-control", @required = true })
+
+        @Html.Label("Password:")
+        @Html.TextBoxFor(m => m.Password, new { @id = "inputPassword", @type = "password", @class = "form-control", @placeholder = "password.", @minLength="6", @required = true })        
+       
+       @Html.Label("Confirmar Password:")
+       @Html.TextBoxFor(m => m.ConfirmPassword, new { @id = "inputPasswordConfirm", @type = "password", @match = "#inputPassword", @class = "form-control", @placeholder = "confirmar password.", @required = true, @matcherror = "No coincide el password" })        
+       
+        /*
+        @Html.ListBoxFor(m => m.RolUser ,null,new { @id = "inputRolUser", @class = "form-control", @placeholder = "", @required = true })        
+        */
+        <br />
+        <button class="btn btn-lg btn-primary" type="submit">Registrar Usuario</button>
+        
+        if (ViewData.ModelState.Keys.Any(k => ViewData.ModelState[k].Errors.Count() > 0))
+        {    
+            <br />     
+            <div class="alert alert-danger" margin-top:"10px">
+                <strong>Error!</strong> Usuario o password invalidos.
+            </div>
+        }
+    }
+</div>

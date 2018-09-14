@@ -28,6 +28,6 @@ namespace Cnbv.CauServicios.Model
         /// <summary>
         /// Usuarios ref.
         /// </summary>
-        public Usuario Usuario { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

@@ -73,7 +73,7 @@ namespace Cnbv.CauServicios.Web.Controllers
                 tmp.FechaAsignado = a.FechaAsignado.ToString("dd/MM/yyyy HH:mm:ss");
                 tmp.Id = a.Id;
                 tmp.NumeroReporte = a.NumeroReporte;
-                tmp.UsuarioSolicitud = a.Usuario.Expediente;
+                tmp.UsuarioSolicitud = a.Usuario.NombreCompleto;
                 result.Add(tmp);
             }
 

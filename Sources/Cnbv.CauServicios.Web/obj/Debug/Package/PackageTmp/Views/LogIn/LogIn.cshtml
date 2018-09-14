@@ -1,0 +1,46 @@
+﻿@Styles.Render("~/Content/PagesStyles/LogIn.css")
+  
+
+@model  Cnbv.CauServicios.Web.Models.ModelUser
+@{
+    ViewBag.Title = "LogInView";    
+}
+<hr />
+<hr />
+<div class="container">
+    <div class="row">
+         <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header no-border">
+                    <div class="d-flex justify-content-between">
+                        <h2 class="card-title">Acceso Usuarios</h2>                        
+                    </div>
+                </div>
+                @using (Html.BeginForm("LogInUser", "LogIn", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-signin" }))
+                {                    
+                    @Html.Label("Usuario", new { @class = "sr-only" })
+                    @Html.TextBoxFor(m => m.User, new { @type = "input", @id = "inputEmail", @class = "form-control", @placeholder = "Usuario", @required = true, @autofocus = true })
+                    <label for="inputPassword" class="sr-only">Contraseña</label>
+                    @Html.PasswordFor(m => m.Password, new { @id = "inputPassword", @class = "form-control", @placeholder = "Contraseña", @required = true })
+                    <div class="checkbox">
+                        <label>
+                            @Html.CheckBoxFor(m => m.RememberMe, new { @type = "checkbox" })
+                            Recordar Contraseña.
+                        </label>
+                    </div>
+                    <button class="btn btn-lg btn-primary" type="submit">Sign in</button>
+                    if (ViewData.ModelState.Keys.Any(k => ViewData.ModelState[k].Errors.Count() > 0))
+                    {
+                        <div class="alert alert-danger" margin-top:"10px">
+                            <strong>Error!</strong> Usuario o password invalidos.
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+        <div>
+
+        </div>
+    </div>
+</div>

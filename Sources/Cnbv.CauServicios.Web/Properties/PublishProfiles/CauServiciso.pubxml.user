@@ -31,58 +31,58 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/14/2017 02:58:58</publishTime>
     </File>
     <File Include="bin/Cnbv.CauServicios.Data.dll">
-      <publishTime>09/10/2018 14:51:06</publishTime>
+      <publishTime>09/13/2018 20:03:41</publishTime>
     </File>
     <File Include="bin/Cnbv.CauServicios.Data.pdb">
-      <publishTime>09/10/2018 14:51:06</publishTime>
+      <publishTime>09/13/2018 20:03:41</publishTime>
     </File>
     <File Include="bin/Cnbv.CauServicios.Model.dll">
-      <publishTime>09/10/2018 14:51:05</publishTime>
+      <publishTime>09/13/2018 20:03:41</publishTime>
     </File>
     <File Include="bin/Cnbv.CauServicios.Model.pdb">
-      <publishTime>09/10/2018 14:51:05</publishTime>
+      <publishTime>09/13/2018 20:03:41</publishTime>
     </File>
     <File Include="bin/Cnbv.CauServicios.Service.dll">
-      <publishTime>09/10/2018 14:51:06</publishTime>
+      <publishTime>09/13/2018 20:03:42</publishTime>
     </File>
     <File Include="bin/Cnbv.CauServicios.Service.pdb">
-      <publishTime>09/10/2018 14:51:06</publishTime>
+      <publishTime>09/13/2018 20:03:42</publishTime>
     </File>
     <File Include="bin/Cnbv.CauServicios.Web.dll">
-      <publishTime>09/10/2018 14:51:07</publishTime>
+      <publishTime>09/13/2018 20:06:55</publishTime>
     </File>
     <File Include="bin/Cnbv.CauServicios.Web.pdb">
-      <publishTime>09/10/2018 14:51:07</publishTime>
+      <publishTime>09/13/2018 20:06:55</publishTime>
     </File>
     <File Include="bin/Cnbv.Sait.ActiveDirectory.dll">
-      <publishTime>10/04/2010 20:32:12</publishTime>
-    </File>
-    <File Include="bin/Cnbv.Sait.ActiveDirectory.pdb">
       <publishTime>04/10/2010 20:32:12</publishTime>
     </File>
-    <File Include="bin/Cnbv.Sait.IActiveDirectory.dll">
-      <publishTime>10/04/2010 20:31:50</publishTime>
+    <File Include="bin/Cnbv.Sait.ActiveDirectory.pdb">
+      <publishTime>10/04/2010 20:32:12</publishTime>
     </File>
-    <File Include="bin/Cnbv.Sait.IActiveDirectory.pdb">
+    <File Include="bin/Cnbv.Sait.IActiveDirectory.dll">
       <publishTime>04/10/2010 20:31:50</publishTime>
     </File>
-    <File Include="bin/Cnbv.Sait.ISystemSecurity.dll">
-      <publishTime>10/04/2010 20:31:38</publishTime>
+    <File Include="bin/Cnbv.Sait.IActiveDirectory.pdb">
+      <publishTime>10/04/2010 20:31:50</publishTime>
     </File>
-    <File Include="bin/Cnbv.Sait.ISystemSecurity.pdb">
+    <File Include="bin/Cnbv.Sait.ISystemSecurity.dll">
       <publishTime>04/10/2010 20:31:38</publishTime>
     </File>
-    <File Include="bin/Cnbv.Sait.SystemSecurity.dll">
-      <publishTime>10/04/2010 20:32:24</publishTime>
+    <File Include="bin/Cnbv.Sait.ISystemSecurity.pdb">
+      <publishTime>10/04/2010 20:31:38</publishTime>
     </File>
-    <File Include="bin/Cnbv.Sait.SystemSecurity.pdb">
+    <File Include="bin/Cnbv.Sait.SystemSecurity.dll">
       <publishTime>04/10/2010 20:32:24</publishTime>
     </File>
+    <File Include="bin/Cnbv.Sait.SystemSecurity.pdb">
+      <publishTime>10/04/2010 20:32:24</publishTime>
+    </File>
     <File Include="bin/Cnbv.Sait.Utilities.dll">
-      <publishTime>10/04/2010 20:31:32</publishTime>
+      <publishTime>04/10/2010 20:31:32</publishTime>
     </File>
     <File Include="bin/Cnbv.Sait.Utilities.pdb">
-      <publishTime>04/10/2010 20:31:32</publishTime>
+      <publishTime>10/04/2010 20:31:32</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>05/15/2018 13:14:29</publishTime>
@@ -94,7 +94,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/15/2018 13:26:45</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>01/09/2016 13:50:06</publishTime>
+      <publishTime>09/01/2016 13:50:06</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>01/28/2015 04:02:42</publishTime>
@@ -106,7 +106,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/28/2015 04:02:54</publishTime>
     </File>
     <File Include="bin/System.Web.Http.WebHost.dll">
-      <publishTime>10/01/2013 20:54:26</publishTime>
+      <publishTime>01/10/2013 20:54:26</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
       <publishTime>02/15/2017 16:46:14</publishTime>
@@ -3370,16 +3370,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/15/2018 13:26:57</publishTime>
     </File>
     <File Include="Scripts/ViewScripts/AsignarFolios.js">
-      <publishTime>09/04/2018 17:37:59</publishTime>
+      <publishTime>04/09/2018 17:37:59</publishTime>
     </File>
     <File Include="Scripts/ViewScripts/RegistraUsuario.js">
-      <publishTime>06/04/2018 18:51:17</publishTime>
+      <publishTime>04/06/2018 18:51:17</publishTime>
     </File>
     <File Include="Scripts/_references.js">
       <publishTime>05/17/2018 17:42:54</publishTime>
     </File>
     <File Include="Views/AsignarFolios/AsignarFolio.cshtml">
-      <publishTime>09/05/2018 14:40:08</publishTime>
+      <publishTime>05/09/2018 14:40:08</publishTime>
     </File>
     <File Include="Views/ConsultaFolios/ConsultaFolios.cshtml">
       <publishTime>09/10/2018 15:05:41</publishTime>
@@ -3391,13 +3391,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/13/2018 19:18:31</publishTime>
     </File>
     <File Include="Views/LogIn/LogIn.cshtml">
-      <publishTime>06/01/2018 18:59:29</publishTime>
+      <publishTime>01/06/2018 18:59:29</publishTime>
     </File>
     <File Include="Views/RegistraSocio/RegistraSocio.cshtml">
       <publishTime>05/17/2018 18:46:24</publishTime>
     </File>
     <File Include="Views/Shared/AuthorizeMenuPartial.cshtml">
-      <publishTime>09/03/2018 17:29:19</publishTime>
+      <publishTime>09/11/2018 18:28:35</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>05/15/2018 13:26:58</publishTime>
@@ -3406,7 +3406,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/25/2018 15:57:28</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>09/05/2018 17:32:13</publishTime>
+      <publishTime>05/09/2018 17:32:13</publishTime>
     </File>
     <File Include="Views/Socios/Socios.cshtml">
       <publishTime>05/18/2018 12:13:57</publishTime>
@@ -3418,7 +3418,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/15/2018 13:26:57</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/10/2018 15:06:57</publishTime>
+      <publishTime>09/13/2018 20:07:04</publishTime>
     </File>
   </ItemGroup>
 </Project>

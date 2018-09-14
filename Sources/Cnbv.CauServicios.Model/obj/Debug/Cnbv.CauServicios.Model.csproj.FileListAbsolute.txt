@@ -12,3 +12,7 @@ E:\ProjectoNNRP\Code\Sources\Cnbv.CauServicios.Model\bin\Debug\Cnbv.CauServicios
 E:\ProjectoNNRP\Code\Sources\Cnbv.CauServicios.Model\obj\Debug\Cnbv.CauServicios.Model.dll
 E:\ProjectoNNRP\Code\Sources\Cnbv.CauServicios.Model\obj\Debug\Cnbv.CauServicios.Model.pdb
 E:\ProjectoNNRP\Code\Sources\Cnbv.CauServicios.Model\obj\Debug\Cnbv.CauServicios.Model.csprojResolveAssemblyReference.cache
+E:\ProjectoNNRP\CauSrv\Cnbv.CauServicios\Sources\Cnbv.CauServicios.Model\bin\Debug\Cnbv.CauServicios.Model.dll
+E:\ProjectoNNRP\CauSrv\Cnbv.CauServicios\Sources\Cnbv.CauServicios.Model\bin\Debug\Cnbv.CauServicios.Model.pdb
+E:\ProjectoNNRP\CauSrv\Cnbv.CauServicios\Sources\Cnbv.CauServicios.Model\obj\Debug\Cnbv.CauServicios.Model.dll
+E:\ProjectoNNRP\CauSrv\Cnbv.CauServicios\Sources\Cnbv.CauServicios.Model\obj\Debug\Cnbv.CauServicios.Model.pdb

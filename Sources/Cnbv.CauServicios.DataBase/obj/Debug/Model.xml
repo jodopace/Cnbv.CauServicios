@@ -12,7 +12,7 @@
 		</CustomData>
 		<CustomData Category="Reference" Type="Assembly">
 			<Metadata Name="LogicalName" Value="Cnbv.CauServicios.dll" />
-			<Metadata Name="FileName" Value="E:\PROJECTONNRP\CODE\SOURCES\CNBV.CAUSERVICIOS.DATABASE\OBJ\DEBUG\CNBV.CAUSERVICIOS.DLL" />
+			<Metadata Name="FileName" Value="E:\PROJECTONNRP\CAUSRV\CNBV.CAUSERVICIOS\SOURCES\CNBV.CAUSERVICIOS.DATABASE\OBJ\DEBUG\CNBV.CAUSERVICIOS.DLL" />
 			<Metadata Name="AssemblyName" Value="Cnbv.CauServicios" />
 			<Metadata Name="PermissionSet" Value="SAFE" />
 			<Metadata Name="Owner" Value="" />
@@ -20,7 +20,7 @@
 			<Metadata Name="IsVisible" Value="True" />
 			<Metadata Name="IsModelAware" Value="True" />
 			<Metadata Name="SkipCreationIfEmpty" Value="True" />
-			<Metadata Name="AssemblySymbolsName" Value="E:\ProjectoNNRP\Code\Sources\Cnbv.CauServicios.Database\obj\Debug\Cnbv.CauServicios.pdb" />
+			<Metadata Name="AssemblySymbolsName" Value="E:\ProjectoNNRP\CauSrv\Cnbv.CauServicios\Sources\Cnbv.CauServicios.Database\obj\Debug\Cnbv.CauServicios.pdb" />
 		</CustomData>
 		<CustomData Category="SqlCmdVariables" Type="SqlCmdVariable" />
 	</Header>

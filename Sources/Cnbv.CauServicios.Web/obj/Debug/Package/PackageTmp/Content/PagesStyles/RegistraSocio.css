@@ -1,0 +1,30 @@
+﻿body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+}
+
+.form-registro {
+  max-width: 500px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-registro .form-registro-heading,
+.form-registro .checkbox {
+  margin-bottom: 10px;
+}
+.form-registro .checkbox {
+  font-weight: normal;
+}
+.form-registro .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 5px;
+  font-size: 14px;
+}
+.form-registro .form-control:focus {
+  z-index: 2;
+}

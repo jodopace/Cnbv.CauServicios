@@ -1,0 +1,176 @@
+﻿@Scripts.Render("~/Scripts/ViewScripts/AsignarFolios.js")
+@*@Scripts.Render("~/Scripts/ViewScripts/AsignarFolios.js")
+@Scripts.Render("~/Scripts/ViewScripts/AsignarFolios.js")
+@Scripts.Render("~/Scripts/ViewScripts/AsignarFolios.js")*@
+@Scripts.Render("~/Content/AdminLTE/AdminLTE-3.0.0-alpha/plugins/input-mask/jquery.inputmask.js")
+@Scripts.Render("~/Content/AdminLTE/AdminLTE-3.0.0-alpha/plugins/input-mask/jquery.inputmask.date.extensions.js")
+@Scripts.Render("~/Content/AdminLTE/AdminLTE-3.0.0-alpha/plugins/input-mask/jquery.inputmask.extensions.js")
+@Styles.Render("~/Content/AdminLTE/AdminLTE-3.0.0-alpha/plugins/iCheck/all.css")
+<!-- OPTIONAL SCRIPTS -->
+@Scripts.Render("~/Content/AdminLTE/AdminLTE-3.0.0-alpha/plugins/chart.js/Chart.min.js")
+@Scripts.Render("~/Content/AdminLTE/AdminLTE-3.0.0-alpha/dist/js/pages/dashboard3.js")
+
+@{
+    ViewBag.Title = "AsignarFolio";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    @*<div class="content-wrapper" style="min-height: 921px;">*@
+        <div class="content-header">
+        </div>
+        @*<div class="container-fluid">*@
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        @*<h1 class="m-0 text-dark">Asignar Folio</h1>*@
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            @*<li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">Starter Page</li>*@
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Asignar Folio</h5>
+
+                                <div class="card-tools">                                   
+                                        <button class="btn btn-tool" type="button" data-widget="collapse">
+                                            <i class="fa fa-minus"></i>
+                                        </button>                           
+                                    <div class="btn-group">
+                                        <button class="btn btn-tool dropdown-toggle" type="button" data-toggle="dropdown">
+                                            <i class="fa fa-wrench"></i>
+                                        </button>                                        
+                                    </div>
+                                    <button class="btn btn-tool" type="button" data-widget="remove">
+                                        <i class="fa fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="row col-md-12">
+                                <div class="card-body ">
+
+                                    @if (HttpContext.Current.User.IsInRole("Administrador") || HttpContext.Current.User.IsInRole("Gerente"))
+                                    {
+                                    <div class="input-group input-group-sm">
+                                        <div class="col-md-4">
+                                            <input class="form-control" type="number" id="folioInTxt" maxlength="6">
+                                            </div>
+                                        <div class="col-md-2">
+                                            <span class="input-group-append">
+                                                <button id="addFolioBtn" class="btn btn-info btn-flat" type="button">Asignar Folio.</button>
+                                            </span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="box">
+                                                <div class="box-header with-border">
+                                                    <h3 class="box-title">Asignado a:</h3>
+                                                    <div class="box-tools pull-right">
+                                                        <!-- Buttons, labels, and many other things can be placed here! -->
+                                                        <!-- Here is a label for example -->
+                                                        @*<span class="label label-primary">Label</span>*@
+                                                    </div><!-- /.box-tools -->
+                                                </div><!-- /.box-header -->
+                                                <div class="box-body" id="boxnombre">
+                                                    
+                                                </div><!-- /.box-body -->
+                                                <div class="box-footer">
+                                                    
+                                                </div><!-- box-footer -->
+                                            </div><!-- /.box -->
+                                        </div>
+                                        </div>
+                                    }
+
+
+                                    <br />
+                                    <br />
+
+                                    <div class="position-relative mb-auto">
+                                        <canvas id="FolioIng-chart" height="600"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <!-- ./card-body -->
+                            <div class="card-footer">
+
+                                <!-- /.row -->
+                            </div>
+                            <!-- /.card-footer -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+
+        @*</div>*@<!-- /.container-fluid -->
+        
+    @*</div>*@
+</div>
+    <script>
+
+        $(document).ready(function () {
+            debugger;
+            $(":input").inputmask();
+            
+            ////Inputmask().mask(document.querySelectorAll("input"));
+            $("#addFolioBtn").button().click(function () { AsignFolioToPerson(); });
+            var url = "@Html.Raw(Url.Action("NewChart", "AsignarFolios"))"
+            LoadChart(url);
+
+            
+
+                //$("#folioInTxt").inputmask({
+                //    mask: "9{6}",
+                //    greedy: false,
+                //    definitions: {
+                //        '*': {
+                //            validator: "[0-9]",
+                //            cardinality: 1
+                //        }
+                //    }
+                //});
+
+
+        });//End Document Ready
+
+        function AsignFolioToPerson() {
+           
+            var dataaux = {
+                folio:$('#folioInTxt').val()
+            }
+            debugger;
+            $.ajax({
+                type: "POST",
+                url:  "@Html.Raw(Url.Action("AsignNewFolio", "AsignarFolios"))",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify(dataaux),
+                success: function (chData) {
+                    var url = "@Html.Raw(Url.Action("NewChart", "AsignarFolios"))"
+                    LoadChart(url);
+                    $("#boxnombre").html(chData.Name);
+                    $('#folioInTxt').val("");
+
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                }
+            });
+        }
+
+    </script>
